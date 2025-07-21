@@ -5,17 +5,20 @@ import { DAY_15, DAY_30, DAY_7 } from "./constants";
 import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
 
 export const timBacLuongMaxTheoNgach = (
-  bacLuong: BacLuongWithNgach,
-  bacLuongMax: BacLuongMax[]
+  bacLuong: BacLuongWithNgach | undefined,
+  bacLuongMax: BacLuongMax[] | undefined
 ) => {
-  const bacLuongMaxTheoNgach = bacLuongMax.find(
-    (item) => item.maNgach === bacLuong.ngach.maNgach
+  const bacLuongMaxTheoNgach = bacLuongMax?.find(
+    (item) => item.maNgach === bacLuong?.ngach.maNgach
   );
   return bacLuongMaxTheoNgach;
 };
 
+export const formatNgayVN = (date: Date | undefined) =>
+  dayjs(date).format("DD/MM/YYYY");
+
 export const formatNgayApDungTiepTheo = (
-  ngayApDung: Date,
+  ngayApDung: Date | undefined,
   thoiGianNangBac: number
 ) => {
   return dayjs(ngayApDung).add(thoiGianNangBac, "day").format("DD/MM/YYYY");
@@ -45,21 +48,23 @@ export const formatColorTheoNgayApDung = (
 };
 
 export const isBacLuongMax = (
-  bacLuong: BacLuongWithNgach,
-  bacLuongMax: BacLuongMax[]
+  bacLuong: BacLuongWithNgach | undefined,
+  bacLuongMax: BacLuongMax[] | undefined
 ) => {
   const bacLuongMaxTheoNgach = timBacLuongMaxTheoNgach(bacLuong, bacLuongMax);
-  return bacLuongMaxTheoNgach?.bacMax === bacLuong.bac;
+  return bacLuongMaxTheoNgach?.bacMax === bacLuong?.bac;
 };
 
 export const calculateTotalSalary = (
-  item: ThongTinBHXHResponse,
+  item: ThongTinBHXHResponse | undefined,
   mucLuong: number
 ) => {
-  const phuCapSalary = item.phuCap ? item.phuCap.heSo * mucLuong : 0;
-  const trachNhiemSalary = item.trachNhiem
+  const phuCapSalary = item?.phuCap ? item.phuCap.heSo * mucLuong : 0;
+  const trachNhiemSalary = item?.trachNhiem
     ? item.trachNhiem.heSo * mucLuong
     : 0;
-  const bacSalary = item.bacNgachLuong.heSo * mucLuong;
+  const bacSalary = item?.bacNgachLuong
+    ? item.bacNgachLuong.heSo * mucLuong
+    : 0;
   return phuCapSalary + trachNhiemSalary + bacSalary;
 };

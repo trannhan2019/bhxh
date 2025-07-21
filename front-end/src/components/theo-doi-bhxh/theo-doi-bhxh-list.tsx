@@ -6,6 +6,7 @@ import {
   calculateTotalSalary,
   formatColorTheoNgayApDung,
   formatNgayApDungTiepTheo,
+  formatNgayVN,
   isBacLuongMax,
 } from "lib/util";
 import { Link } from "react-router";
@@ -78,9 +79,7 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
             <Table.Td>
               {calculateTotalSalary(item, mucLuong).toLocaleString("vi-VN")}
             </Table.Td>
-            <Table.Td>
-              {new Date(item.ngayApDung).toLocaleDateString("vi-VN")}
-            </Table.Td>
+            <Table.Td>{formatNgayVN(item.ngayApDung)}</Table.Td>
             <Table.Td>
               {isBacLuongMax(item.bacNgachLuong, bacLuongMax?.data || []) ||
               item.isMaxBac ? (
