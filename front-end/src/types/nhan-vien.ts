@@ -6,6 +6,8 @@ export type NhanVien = {
   ten: string;
   soThuTu: number;
   isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export type NhanVienWithPhong = NhanVien & { phong: Phong };

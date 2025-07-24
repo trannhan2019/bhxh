@@ -3,4 +3,6 @@ export type MucLuongToiThieu = {
   mucLuong: number;
   thoiGianApdung: Date;
   canCuPhapLy?: string | null;
+  createdAt: Date;
+  updatedAt: Date;
 };

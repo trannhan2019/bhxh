@@ -3,4 +3,6 @@ export type Phong = {
   ten: string;
   tenVietTat: string;
   soThuTu: number;
+  createdAt: Date;
+  updatedAt: Date;
 };

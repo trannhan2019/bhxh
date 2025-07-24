@@ -14,20 +14,19 @@ export function NhanVienList() {
     queryKey: ["nhanViens", pageParam, pageSizeParam],
     queryFn: () => getNhanViens({ page: pageParam, pageSize: pageSizeParam }),
     placeholderData: keepPreviousData,
-    retry: false,
   });
 
-  const {
-    currentPage,
-    pageSize,
-    totalPages,
-    handlePageChange,
-    handlePageSizeChange,
-  } = usePhanTrang(nhanViens?.data.total || 0);
+  // const {
+  //   currentPage,
+  //   pageSize,
+  //   totalPages,
+  //   handlePageChange,
+  //   handlePageSizeChange,
+  // } = usePhanTrang(nhanViens?.data.total || 0);
 
-  const rows = nhanViens?.data?.data.map((element, idx) => (
+  const rows = nhanViens?.data?.map((element, idx) => (
     <Table.Tr key={element.id}>
-      <Table.Td>{(currentPage - 1) * pageSize + idx + 1}</Table.Td>
+      {/* <Table.Td>{(currentPage - 1) * pageSize + idx + 1}</Table.Td> */}
       <Table.Td>{element.ten}</Table.Td>
       <Table.Td>{element.phong.ten}</Table.Td>
       <Table.Td>{element.chucVu.ten}</Table.Td>
@@ -55,7 +54,7 @@ export function NhanVienList() {
         <Table.Tbody>{rows}</Table.Tbody>
       </Table>
 
-      <Group mt="md" justify="flex-end">
+      {/* <Group mt="md" justify="flex-end">
         <Select
           data={["5", "10", "20", "50"]}
           value={String(pageSize)}
@@ -67,7 +66,7 @@ export function NhanVienList() {
           value={currentPage}
           onChange={handlePageChange}
         />
-      </Group>
+      </Group> */}
     </div>
   );
 }

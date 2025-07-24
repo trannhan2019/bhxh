@@ -7,7 +7,6 @@ export function ChucVuList() {
     queryKey: ["chucVus"],
     queryFn: () => getChucVus(),
     placeholderData: keepPreviousData,
-    retry: false,
   });
   return (
     <Table withTableBorder highlightOnHover>

@@ -7,7 +7,6 @@ export function PhongList() {
     queryKey: ["phongs"],
     queryFn: () => getPhongs(),
     placeholderData: keepPreviousData,
-    retry: false,
   });
   return (
     <Table withTableBorder highlightOnHover>
