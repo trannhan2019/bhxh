@@ -1,14 +1,20 @@
 import { Table } from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getHeSoPhuCaps } from "apis/he-so-phu-cap";
+import { getHeSoTrachNhiems } from "apis/he-so-trach-nhiem";
 
 export function HeSoPhuCapList() {
-  const { data } = useQuery({
+  const { data: heSoPhuCaps } = useQuery({
     // Luôn lấy error để debug nếu cần
     queryKey: ["heSoPhuCaps"],
     queryFn: getHeSoPhuCaps, // Không cần bọc trong arrow function nếu hàm không có tham số và không cần truyền thêm gì
     placeholderData: keepPreviousData,
-    retry: false, // Bỏ comment để dùng nếu bạn muốn vô hiệu hóa retry
+  });
+
+  const { data: heSoTrachNhiems } = useQuery({
+    queryKey: ["heSoTrachNhiems"],
+    queryFn: () => getHeSoTrachNhiems(),
+    placeholderData: keepPreviousData,
   });
 
   const phuCapTable = (
@@ -24,7 +30,7 @@ export function HeSoPhuCapList() {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        {data?.heSoPhuCap?.map((item, index) => (
+        {heSoPhuCaps?.map((item, index) => (
           <Table.Tr key={item.id}>
             <Table.Td>{index + 1}</Table.Td>
             <Table.Td>{item.chucDanh}</Table.Td>
@@ -48,7 +54,7 @@ export function HeSoPhuCapList() {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        {data?.heSoTrachNhiem?.map((item, index) => (
+        {heSoTrachNhiems?.map((item, index) => (
           <Table.Tr key={item.id}>
             <Table.Td>{index + 1}</Table.Td>
             <Table.Td>{item.chucDanh}</Table.Td>

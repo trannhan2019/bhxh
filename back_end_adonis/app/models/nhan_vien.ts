@@ -1,8 +1,9 @@
 import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, hasOne } from '@adonisjs/lucid/orm'
 import Phong from './phong.js'
-import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo, HasOne } from '@adonisjs/lucid/types/relations'
 import ChucVu from './chuc_vu.js'
+import ThongTinBhxh from './thong_tin_bhxh.js'
 
 export default class NhanVien extends BaseModel {
   @column({ isPrimary: true })
@@ -29,8 +30,8 @@ export default class NhanVien extends BaseModel {
   @column()
   declare isActive: boolean
 
-  // @hasOne(() => ThongTinBHXH)
-  // declare thongTinBHXH: HasOne<typeof ThongTinBHXH>
+  @hasOne(() => ThongTinBhxh)
+  declare thongTinBHXH: HasOne<typeof ThongTinBhxh>
 
   // @hasMany(() => LichSuBHXH)
   // declare lichSuBHXH: HasMany<typeof LichSuBHXH>

@@ -1,7 +1,7 @@
 import { Anchor, Badge, List, Table } from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { getBacLuongMax } from "apis/bac-luong-max";
-import { getMucLuongToiThieus } from "apis/muc-luong-toi-thieu";
+
+import { getMucLuongToiThieuMoiNhat } from "apis/muc-luong-toi-thieu";
 import {
   calculateTotalSalary,
   formatColorTheoNgayApDung,
@@ -14,17 +14,9 @@ import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
 
 export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
   const { data: mucLuongToiThieu } = useQuery({
-    queryKey: ["mucLuongToiThieus"],
-    queryFn: () => getMucLuongToiThieus(),
+    queryKey: ["mucLuongToiThieu"],
+    queryFn: () => getMucLuongToiThieuMoiNhat(),
     placeholderData: keepPreviousData,
-    retry: false,
-  });
-  const mucLuong = mucLuongToiThieu?.data[0]?.mucLuong || 0;
-  const { data: bacLuongMax } = useQuery({
-    queryKey: ["bacLuongMaxs"],
-    queryFn: () => getBacLuongMax(),
-    placeholderData: keepPreviousData,
-    retry: false,
   });
 
   return (
@@ -70,32 +62,38 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
                   </List.Item>
                 )}
                 <List.Item>
-                  {item.bacNgachLuong.ngach.chucDanh}, bậc{" "}
-                  {item.bacNgachLuong.bac}, hệ số{" "}
-                  {item.bacNgachLuong.heSo.toLocaleString("vi-VN")}
+                  {item.ngachLuong.chucDanh}, bậc {item.bacLuong.bac}, hệ số{" "}
+                  {item.bacLuong.heSo.toLocaleString("vi-VN")}
                 </List.Item>
               </List>
             </Table.Td>
             <Table.Td>
-              {calculateTotalSalary(item, mucLuong).toLocaleString("vi-VN")}
+              {calculateTotalSalary(
+                item?.phuCap?.heSo,
+                item?.trachNhiem?.heSo,
+                item?.bacLuong,
+                mucLuongToiThieu?.mucLuong || 0
+              ).toLocaleString("vi-VN")}
             </Table.Td>
-            <Table.Td>{formatNgayVN(item.ngayApDung)}</Table.Td>
+            <Table.Td>{formatNgayVN(item?.ngayApDung)}</Table.Td>
             <Table.Td>
-              {isBacLuongMax(item.bacNgachLuong, bacLuongMax?.data || []) ||
-              item.isMaxBac ? (
+              {isBacLuongMax(
+                item?.bacLuong,
+                item?.ngachLuong.bacLuong || []
+              ) ? (
                 <Badge variant="outline" color="green">
                   Đã max bậc
                 </Badge>
               ) : (
                 <Badge
                   color={formatColorTheoNgayApDung(
-                    item.ngayApDung,
-                    item.bacNgachLuong.thoiGianNangBac
+                    item?.ngayApDung,
+                    item?.bacLuong.thoiGianNangBac
                   )}
                 >
                   {formatNgayApDungTiepTheo(
-                    item.ngayApDung,
-                    item.bacNgachLuong.thoiGianNangBac
+                    item?.ngayApDung,
+                    item?.bacLuong.thoiGianNangBac
                   )}
                 </Badge>
               )}

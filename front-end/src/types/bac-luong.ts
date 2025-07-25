@@ -5,7 +5,7 @@ export type BacLuong = {
   bac: number;
   heSo: number;
   thoiGianNangBac: number;
-  ngachId: number;
+  ngachLuongId: number;
   createdAt: Date;
   updatedAt: Date;
 };

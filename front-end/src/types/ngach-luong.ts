@@ -8,4 +8,4 @@ export type NgachLuong = {
   updatedAt: Date;
 };
 
-export type NgachLuongWithBac = NgachLuong & { bacNgach: BacLuong[] };
+export type NgachLuongWithBac = NgachLuong & { bacLuong: BacLuong[] };

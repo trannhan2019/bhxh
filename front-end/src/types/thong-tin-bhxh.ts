@@ -1,21 +1,30 @@
-import type { BacLuongWithNgach } from "./bac-luong";
+import type { BacLuong } from "./bac-luong";
 import type { HeSoPhuCap } from "./he-so-phu-cap";
-import type { NhanVienWithPhong } from "./nhan-vien";
+import type { NgachLuongWithBac } from "./ngach-luong";
+import type { NhanVien, NhanVienWithPhong } from "./nhan-vien";
 
-export type ThongTinBHXH = {
+export type ThongTinBhxh = {
   id: number;
   nhanVienId: number;
-  bacNgachLuongId: number;
+  ngachLuongId: number;
+  bacLuongId: number;
   phuCapId: number | null;
   trachNhiemId: number | null;
   ngayApDung: Date;
   thongTin: string | null;
-  isMaxBac: boolean;
+  lastEmailSentAt: Date | null;
 };
 
-export type ThongTinBHXHResponse = ThongTinBHXH & {
+export type ThongTinBHXHWithNhanVienNgachLuongBacLuong = ThongTinBhxh & {
+  nhanVien: NhanVien;
+  ngachLuong: NgachLuongWithBac;
+  bacLuong: BacLuong;
+};
+
+export type ThongTinBHXHResponse = ThongTinBhxh & {
   nhanVien: NhanVienWithPhong;
-  bacNgachLuong: BacLuongWithNgach;
+  ngachLuong: NgachLuongWithBac;
+  bacLuong: BacLuong;
   phuCap: HeSoPhuCap | null;
   trachNhiem: HeSoPhuCap | null;
 };

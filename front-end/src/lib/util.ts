@@ -1,17 +1,29 @@
-import type { BacLuongWithNgach } from "types/bac-luong";
-import type { BacLuongMax } from "types/bac-luong-max";
 import dayjs from "dayjs";
 import { DAY_15, DAY_30, DAY_7 } from "./constants";
-import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
+import type { BacLuong } from "types/bac-luong";
 
-export const timBacLuongMaxTheoNgach = (
-  bacLuong: BacLuongWithNgach | undefined,
-  bacLuongMax: BacLuongMax[] | undefined
+export const timBacLuongTiepTheo = (
+  bacLuong: BacLuong,
+  bacLuongs: BacLuong[]
 ) => {
-  const bacLuongMaxTheoNgach = bacLuongMax?.find(
-    (item) => item.maNgach === bacLuong?.ngach.maNgach
+  const bacLuongTiepTheo = bacLuongs.find(
+    (item) => item.bac === bacLuong.bac + 1
   );
-  return bacLuongMaxTheoNgach;
+  return bacLuongTiepTheo;
+};
+
+export const tinhSoNgayNangBacConLai = (
+  ngayApDung: Date | undefined,
+  thoiGianNangBac: number
+) => {
+  return dayjs(ngayApDung).add(thoiGianNangBac, "day").diff(dayjs(), "day");
+};
+
+export const isGanDenHanNangBac = (
+  ngayApDung: Date | undefined,
+  thoiGianNangBac: number
+) => {
+  return tinhSoNgayNangBacConLai(ngayApDung, thoiGianNangBac) < DAY_15;
 };
 
 export const formatNgayVN = (date: Date | undefined) =>
@@ -48,23 +60,20 @@ export const formatColorTheoNgayApDung = (
 };
 
 export const isBacLuongMax = (
-  bacLuong: BacLuongWithNgach | undefined,
-  bacLuongMax: BacLuongMax[] | undefined
+  bacLuong: BacLuong | undefined,
+  bacLuongs: BacLuong[] | undefined
 ) => {
-  const bacLuongMaxTheoNgach = timBacLuongMaxTheoNgach(bacLuong, bacLuongMax);
-  return bacLuongMaxTheoNgach?.bacMax === bacLuong?.bac;
+  return bacLuongs?.length === bacLuong?.bac;
 };
 
 export const calculateTotalSalary = (
-  item: ThongTinBHXHResponse | undefined,
+  hsphuCap: number | undefined,
+  hstrachNhiem: number | undefined,
+  bacLuong: BacLuong | undefined,
   mucLuong: number
 ) => {
-  const phuCapSalary = item?.phuCap ? item.phuCap.heSo * mucLuong : 0;
-  const trachNhiemSalary = item?.trachNhiem
-    ? item.trachNhiem.heSo * mucLuong
-    : 0;
-  const bacSalary = item?.bacNgachLuong
-    ? item.bacNgachLuong.heSo * mucLuong
-    : 0;
+  const phuCapSalary = hsphuCap ? hsphuCap * mucLuong : 0;
+  const trachNhiemSalary = hstrachNhiem ? hstrachNhiem * mucLuong : 0;
+  const bacSalary = bacLuong ? bacLuong.heSo * mucLuong : 0;
   return phuCapSalary + trachNhiemSalary + bacSalary;
 };

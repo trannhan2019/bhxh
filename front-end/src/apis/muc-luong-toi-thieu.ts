@@ -6,3 +6,10 @@ const apiUrl = "/api/muc-luong-toi-thieu";
 export const getMucLuongToiThieus = () => {
   return axiosClient.get<MucLuongToiThieu[]>(apiUrl);
 };
+
+export const getMucLuongToiThieuMoiNhat = async () => {
+  const response = await axiosClient.get<MucLuongToiThieu>(
+    `${apiUrl}-moi-nhat`
+  );
+  return response.data;
+};

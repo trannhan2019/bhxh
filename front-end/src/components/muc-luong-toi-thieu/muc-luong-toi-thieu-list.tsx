@@ -7,7 +7,6 @@ export function MucLuongToiThieuList() {
     queryKey: ["mucLuongToiThieus"],
     queryFn: () => getMucLuongToiThieus(),
     placeholderData: keepPreviousData,
-    retry: false,
   });
   return (
     <div>

@@ -19,7 +19,7 @@ export default function TheoDoiBhxhId() {
           component={Link}
           to="/theo-doi-bhxh"
         ></Button>
-        <Title order={2} c="gray.8">
+        <Title order={3} c="gray.8">
           Bảng theo dõi chi tiết BHXH
         </Title>
       </div>

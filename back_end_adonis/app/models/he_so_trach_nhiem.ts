@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
+import ThongTinBhxh from './thong_tin_bhxh.js'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 export default class HeSoTrachNhiem extends BaseModel {
   @column({ isPrimary: true })
@@ -11,8 +13,8 @@ export default class HeSoTrachNhiem extends BaseModel {
   @column()
   declare heSo: number
 
-  // @hasMany(() => ThongTinBHXH)
-  // declare thongtinBHXHs: HasMany<typeof ThongTinBHXH>
+  @hasMany(() => ThongTinBhxh)
+  declare thongtinBHXHs: HasMany<typeof ThongTinBhxh>
 
   // @hasMany(() => LichSuBHXH)
   // declare lichSuBHXHs: HasMany<typeof LichSuBHXH>

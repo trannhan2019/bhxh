@@ -4,6 +4,10 @@ import MucLuongToiThieuVung from '#models/muc_luong_toi_thieu_vung'
 
 export default class MucLuongToiThieuVungsController {
   index() {
-    return MucLuongToiThieuVung.all()
+    return MucLuongToiThieuVung.query().orderBy('thoiGianApdung', 'desc')
+  }
+
+  getMucLuongMoiNhat() {
+    return MucLuongToiThieuVung.query().orderBy('thoiGianApdung', 'desc').first()
   }
 }
