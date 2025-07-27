@@ -47,9 +47,13 @@ router
     router
       .group(() => {
         router.get('', [ThongTinBhxhsController, 'index'])
+        router.get('/send-email', [ThongTinBhxhsController, 'sendNotificationEmail'])
+        router.get('report/:id', [ThongTinBhxhsController, 'report'])
         router.get(':id', [ThongTinBhxhsController, 'show'])
       })
       .prefix('theo-doi-bhxh')
+    /////////////////////////////////////////
+    router.get('test', [ThongTinBhxhsController, 'test'])
   })
   .prefix('api')
 
