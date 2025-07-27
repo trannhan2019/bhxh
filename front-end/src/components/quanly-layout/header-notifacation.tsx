@@ -12,7 +12,14 @@ export function HeaderNotifacation({ data }: Props) {
   return (
     <Menu width={300}>
       <Menu.Target>
-        <Indicator color="red" processing inline label={data?.length} size={14}>
+        <Indicator
+          color="red"
+          disabled={data?.length === 0 || undefined}
+          processing
+          inline
+          label={data?.length}
+          size={14}
+        >
           <ActionIcon variant="subtle" size={"lg"}>
             <IconBellRinging />
           </ActionIcon>

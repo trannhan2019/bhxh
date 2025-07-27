@@ -1,7 +1,7 @@
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'thong_tin_bhxhs'
+  protected tableName = 'lich_su_bhxhs'
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
@@ -10,16 +10,8 @@ export default class extends BaseSchema {
         .integer('nhan_vien_id')
         .unsigned()
         .notNullable()
-        .unique()
         .references('id')
         .inTable('nhan_viens')
-        .onDelete('CASCADE')
-      table
-        .integer('ngach_luong_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('ngach_luongs')
         .onDelete('CASCADE')
       table
         .integer('bac_luong_id')
@@ -42,9 +34,15 @@ export default class extends BaseSchema {
         .references('id')
         .inTable('he_so_trach_nhiems')
         .onDelete('SET NULL')
-      table.dateTime('ngay_ap_dung').notNullable()
-      table.string('thong_tin').nullable()
-      table.dateTime('last_email_sent_at', { useTz: true }).nullable().defaultTo(this.now())
+      table
+        .integer('muc_luong_toi_thieu_vung_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('muc_luong_toi_thieu_vungs')
+        .onDelete('CASCADE')
+      table.dateTime('ngay_ap_dung').nullable()
+      table.string('thong_tin_qd').nullable()
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

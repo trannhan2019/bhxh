@@ -1,22 +1,22 @@
-import { Badge, Button, Card, Divider, List, Text, Title } from "@mantine/core";
+import { Badge, Card, Divider, List, Text, Title } from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getMucLuongToiThieuMoiNhat } from "apis/muc-luong-toi-thieu";
-import { getTheoDoiBHXH } from "apis/thong-tin-bhxh";
 import {
   calculateTotalSalary,
   formatNgayApDungTiepTheo,
   isBacLuongMax,
   isGanDenHanNangBac,
-  tinhSoNgayNangBacConLai,
   timBacLuongTiepTheo,
   formatNgayVN,
 } from "lib/util";
+import { BtnXacNhan } from "./btn-xac-nhan";
+import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
 
-export function TheoDoiBhxhChiTiet({ id }: { id: number }) {
-  const { data } = useQuery({
-    queryKey: ["theo-doi-bhxh", id],
-    queryFn: () => getTheoDoiBHXH(id),
-  });
+export function TheoDoiBhxhChiTiet({
+  data,
+}: {
+  data: ThongTinBHXHResponse | undefined;
+}) {
   const { data: mucLuong } = useQuery({
     queryKey: ["mucLuongToiThieu"],
     queryFn: () => getMucLuongToiThieuMoiNhat(),
@@ -125,16 +125,7 @@ export function TheoDoiBhxhChiTiet({ id }: { id: number }) {
           {isGanDenHanNangBac(
             data?.ngayApDung,
             data?.bacLuong?.thoiGianNangBac || 0
-          ) && (
-            <Button mt={"md"} variant="outline" color="red">
-              Xác nhận nâng bậc tiếp theo: Thời gian còn{" "}
-              {tinhSoNgayNangBacConLai(
-                data?.ngayApDung,
-                data?.bacLuong?.thoiGianNangBac || 0
-              )}{" "}
-              ngày
-            </Button>
-          )}
+          ) && <BtnXacNhan data={data} />}
         </div>
       )}
     </Card>

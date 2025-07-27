@@ -33,3 +33,8 @@ export const getBhxhNotifacationEmail = async () => {
   >(`${apiUrl}/send-email`);
   return response.data;
 };
+
+export const xacNhanNangLuong = async (id: number) => {
+  const response = await axiosClient.get(`${apiUrl}/xac-nhan/${id}`);
+  return response.data;
+};

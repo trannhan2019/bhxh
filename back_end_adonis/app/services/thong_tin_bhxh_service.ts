@@ -2,6 +2,7 @@ import ThongTinBhxh from '#models/thong_tin_bhxh'
 import { DateTime } from 'luxon'
 
 export default class ThongTinBhxhService {
+  private SO_NGAY_KIEM_TRA = 15
   getThongTinBhxhs() {
     return ThongTinBhxh.query()
       .preload('nhanVien', (nhanVienQuery) => {
@@ -46,7 +47,7 @@ export default class ThongTinBhxhService {
 
       return (
         thongTinBhxh.ngachLuong.bacLuong.length !== thongTinBhxh.bacLuong.bac &&
-        ngayDenHan.diff(now, 'days').days < 15
+        ngayDenHan.diff(now, 'days').days < this.SO_NGAY_KIEM_TRA
       )
     })
 

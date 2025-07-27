@@ -18,6 +18,7 @@ const HeSoTrachNhiemsController = () => import('#controllers/he_so_trach_nhiems_
 const BacLuongsController = () => import('#controllers/bac_luongs_controller')
 const NgachLuongsController = () => import('#controllers/ngach_luongs_controller')
 const ThongTinBhxhsController = () => import('#controllers/thong_tin_bhxhs_controller')
+const LichSuBhxhsController = () => import('#controllers/lich_su_bhxhs_controller')
 
 router.get('/', async () => {
   return {
@@ -27,31 +28,43 @@ router.get('/', async () => {
 
 router
   .group(() => {
+    //phong
     router.get('phong', [PhongsController, 'index'])
+    //chuc vu
     router.get('chuc-vu', [ChucVusController, 'index'])
+    //nhan vien
     router.get('nhan-vien', [NhanViensController, 'index'])
+    //muc luong toi thieu
     router.get('muc-luong-toi-thieu', [MucLuongToiThieuVungsController, 'index'])
     router.get('muc-luong-toi-thieu-moi-nhat', [
       MucLuongToiThieuVungsController,
       'getMucLuongMoiNhat',
     ])
+    //he so phu cap
     router.get('he-so-phu-cap', [HeSoPhuCapsController, 'index'])
+    //he so trach nhiem
     router.get('he-so-trach-nhiem', [HeSoTrachNhiemsController, 'index'])
+    //ngach luong
     router
       .group(() => {
         router.get('', [NgachLuongsController, 'index'])
         router.get('bac-luong', [NgachLuongsController, 'getNgachBacLuong'])
       })
       .prefix('ngach-luong')
+    //bac luong
     router.get('bac-luong', [BacLuongsController, 'index'])
+    //theo doi thong tin Bhxh
     router
       .group(() => {
         router.get('', [ThongTinBhxhsController, 'index'])
         router.get('/send-email', [ThongTinBhxhsController, 'sendNotificationEmail'])
         router.get('report/:id', [ThongTinBhxhsController, 'report'])
+        router.get('xac-nhan/:id', [ThongTinBhxhsController, 'xacNhanNangLuong'])
         router.get(':id', [ThongTinBhxhsController, 'show'])
       })
       .prefix('theo-doi-bhxh')
+    //lich su Bhxh
+    router.get('lich-su-bhxh/:id', [LichSuBhxhsController, 'getByNhanVien'])
     /////////////////////////////////////////
     router.get('test', [ThongTinBhxhsController, 'test'])
   })

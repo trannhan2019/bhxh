@@ -1,6 +1,8 @@
 import { Button, Title } from "@mantine/core";
 import { useDocumentTitle } from "@mantine/hooks";
 import { IconArrowLeft } from "@tabler/icons-react";
+import { useQuery } from "@tanstack/react-query";
+import { getTheoDoiBHXH } from "apis/thong-tin-bhxh";
 import { BtnExcel } from "components/theo-doi-bhxh/btn-excel";
 import { TheoDoiBhxhChiTiet } from "components/theo-doi-bhxh/theo-doi-bhxh-id";
 import { TheoDoiLichSuCaNhan } from "components/theo-doi-lich-su-bhxh/theo-doi-ca-nhan";
@@ -8,7 +10,11 @@ import { Link, useParams } from "react-router";
 
 export default function TheoDoiBhxhId() {
   useDocumentTitle("SBA | Chi tiết Theo dõi BHXH");
-  let params = useParams();
+  let { id } = useParams();
+  const { data } = useQuery({
+    queryKey: ["theo-doi-bhxh", id],
+    queryFn: () => getTheoDoiBHXH(Number(id)),
+  });
   return (
     <div>
       <div className="flex justify-between items-center">
@@ -25,10 +31,10 @@ export default function TheoDoiBhxhId() {
             Bảng theo dõi chi tiết BHXH
           </Title>
         </div>
-        <BtnExcel id={Number(params.id)} />
+        <BtnExcel id={Number(id)} />
       </div>
-      <TheoDoiBhxhChiTiet id={Number(params.id)} />
-      <TheoDoiLichSuCaNhan />
+      <TheoDoiBhxhChiTiet data={data} />
+      <TheoDoiLichSuCaNhan id={Number(data?.nhanVienId)} />
     </div>
   );
 }

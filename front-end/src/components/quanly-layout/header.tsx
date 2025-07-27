@@ -3,17 +3,27 @@ import { HeaderNotifacation } from "./header-notifacation";
 import { HeaderUser } from "./header-user";
 import { getBhxhNotifacationEmail } from "apis/thong-tin-bhxh";
 import { Alert } from "@mantine/core";
+import { useEffect, useState } from "react";
 
 export function Header() {
   const { data } = useQuery({
     queryKey: ["theo-doi-bhxh-notifacation"],
     queryFn: () => getBhxhNotifacationEmail(),
   });
+  const [showAlert, setShowAlert] = useState(false);
+  useEffect(() => {
+    setShowAlert(Boolean(data && data.length > 0));
+  }, [data]);
   return (
     <>
-      {data && data.length > 0 && (
-        <Alert title="Thông báo" color="red">
-          Có {data.length} CBNV gần đến hạn nâng lương BHXH.
+      {showAlert && (
+        <Alert
+          title="Thông báo"
+          color="red"
+          onClose={() => setShowAlert(false)}
+          withCloseButton
+        >
+          Có {data?.length} CBNV gần đến hạn nâng lương BHXH.
         </Alert>
       )}
 
