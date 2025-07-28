@@ -26,7 +26,7 @@ export const isGanDenHanNangBac = (
   return tinhSoNgayNangBacConLai(ngayApDung, thoiGianNangBac) < DAY_15;
 };
 
-export const formatNgayVN = (date: Date | undefined) =>
+export const formatNgayVN = (date: Date | null | undefined) =>
   dayjs(date).format("DD/MM/YYYY");
 
 export const formatNgayApDungTiepTheo = (
@@ -67,8 +67,8 @@ export const isBacLuongMax = (
 };
 
 export const calculateTotalSalary = (
-  hsphuCap: number | undefined,
-  hstrachNhiem: number | undefined,
+  hsphuCap: number | undefined | null,
+  hstrachNhiem: number | undefined | null,
   bacLuong: BacLuong | undefined,
   mucLuong: number
 ) => {

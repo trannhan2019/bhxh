@@ -26,6 +26,7 @@ export function TheoDoiBhxhChiTiet({
   const bacLuongTiepTheo =
     data?.bacLuong &&
     timBacLuongTiepTheo(data.bacLuong, data.ngachLuong.bacLuong);
+  // console.log("id:2", data?.id);
 
   return (
     <Card shadow="md" radius="md">
@@ -51,7 +52,8 @@ export function TheoDoiBhxhChiTiet({
           </List.Item>
         )}
         <List.Item>
-          {data?.ngachLuong.chucDanh}, bậc {data?.bacLuong.bac}, hệ số{" "}
+          {data?.ngachLuong.maNgach} - {data?.ngachLuong.chucDanh}, bậc{" "}
+          {data?.bacLuong.bac}, hệ số{" "}
           {data?.bacLuong.heSo.toLocaleString("vi-VN")}
         </List.Item>
       </List>

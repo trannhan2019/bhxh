@@ -45,6 +45,7 @@ export default class extends BaseSchema {
       table.dateTime('ngay_ap_dung').notNullable()
       table.string('thong_tin').nullable()
       table.dateTime('last_email_sent_at', { useTz: true }).nullable().defaultTo(this.now())
+      table.dateTime('da_nghi_huu', { useTz: true }).nullable().defaultTo(null)
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

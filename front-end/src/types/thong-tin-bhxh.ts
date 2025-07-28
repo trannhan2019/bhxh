@@ -13,6 +13,7 @@ export type ThongTinBhxh = {
   ngayApDung: Date;
   thongTin: string | null;
   lastEmailSentAt: Date | null;
+  daNghiHuu: Date | null;
 };
 
 export type ThongTinBHXHWithNhanVienNgachLuongBacLuong = ThongTinBhxh & {

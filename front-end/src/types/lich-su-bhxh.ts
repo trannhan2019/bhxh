@@ -1,4 +1,4 @@
-import type { BacLuong } from "./bac-luong";
+import type { BacLuongWithNgach } from "./bac-luong";
 import type { HeSoPhuCap } from "./he-so-phu-cap";
 import type { MucLuongToiThieu } from "./muc-luong-toi-thieu";
 import type { NhanVien } from "./nhan-vien";
@@ -16,7 +16,7 @@ export type LichSuBhxh = {
 
 export type LichSuBhxhByNhanVien = LichSuBhxh & {
   nhanVien: NhanVien;
-  bacLuong: BacLuong;
+  bacLuong: BacLuongWithNgach;
   phuCap: HeSoPhuCap | null;
   trachNhiem: HeSoPhuCap | null;
   mucLuongToiThieuVung: MucLuongToiThieu;

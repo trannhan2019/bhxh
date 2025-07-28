@@ -13,10 +13,13 @@ export function BtnXacNhan({
   const handleXacNhan = useMutation({
     mutationFn: (id: number) => xacNhanNangLuong(id),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["theo-doi-bhxh", data?.id] });
       queryClient.invalidateQueries({ queryKey: ["theo-doi-bhxhs"] });
+      queryClient.invalidateQueries({ queryKey: ["theo-doi-bhxh", data?.id] });
       queryClient.invalidateQueries({
         queryKey: ["theo-doi-bhxh-notifacation"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["lich-su-bhxh", data?.nhanVienId],
       });
       alert("Xác nhận nâng lương thành công");
     },
@@ -25,7 +28,7 @@ export function BtnXacNhan({
       alert("Không thể xác nhân. Vui liệu thử lại.");
     },
   });
-  // console.log("btn xac nhan", data);
+  console.log("id:3", data?.id);
 
   return (
     <Button

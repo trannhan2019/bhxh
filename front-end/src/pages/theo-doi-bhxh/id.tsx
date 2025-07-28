@@ -11,8 +11,10 @@ import { Link, useParams } from "react-router";
 export default function TheoDoiBhxhId() {
   useDocumentTitle("SBA | Chi tiết Theo dõi BHXH");
   let { id } = useParams();
+  // console.log("id:1", id);
+
   const { data } = useQuery({
-    queryKey: ["theo-doi-bhxh", id],
+    queryKey: ["theo-doi-bhxh", Number(id)],
     queryFn: () => getTheoDoiBHXH(Number(id)),
   });
   return (

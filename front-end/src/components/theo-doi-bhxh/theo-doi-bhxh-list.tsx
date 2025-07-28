@@ -62,7 +62,8 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
                   </List.Item>
                 )}
                 <List.Item>
-                  {item.ngachLuong.chucDanh}, bậc {item.bacLuong.bac}, hệ số{" "}
+                  {item.ngachLuong.maNgach}, {item.ngachLuong.chucDanh}, bậc{" "}
+                  {item.bacLuong.bac}, hệ số{" "}
                   {item.bacLuong.heSo.toLocaleString("vi-VN")}
                 </List.Item>
               </List>

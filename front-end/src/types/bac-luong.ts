@@ -11,5 +11,5 @@ export type BacLuong = {
 };
 
 export type BacLuongWithNgach = BacLuong & {
-  ngach: NgachLuong;
+  ngachLuong: NgachLuong;
 };

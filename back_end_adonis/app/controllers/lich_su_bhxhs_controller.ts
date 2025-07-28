@@ -8,7 +8,7 @@ export default class LichSuBhxhsController {
     return await LichSuBhxh.query()
       .where('nhanVienId', id)
       .preload('nhanVien')
-      .preload('bacLuong')
+      .preload('bacLuong', (query) => query.preload('ngachLuong'))
       .preload('phuCap')
       .preload('trachNhiem')
       .preload('mucLuongToiThieuVung')
