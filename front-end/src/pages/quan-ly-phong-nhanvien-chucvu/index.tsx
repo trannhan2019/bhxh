@@ -8,18 +8,18 @@ export default function QuanLyPhongNhanVienChucVu() {
   useDocumentTitle("SBA | Quản lý phòng, nhân viên, chức vụ");
   return (
     <div>
-      <Tabs defaultValue={"phong"}>
+      <Tabs defaultValue={"nhanvien"}>
         <Tabs.List>
-          <Tabs.Tab value="phong">Phòng</Tabs.Tab>
           <Tabs.Tab value="nhanvien">Nhân viên</Tabs.Tab>
+          <Tabs.Tab value="phong">Phòng</Tabs.Tab>
           <Tabs.Tab value="chucvu">Chức vụ</Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="phong">
-          <PhongList />
-        </Tabs.Panel>
         <Tabs.Panel value="nhanvien">
           <NhanVienList />
+        </Tabs.Panel>
+        <Tabs.Panel value="phong">
+          <PhongList />
         </Tabs.Panel>
         <Tabs.Panel value="chucvu">
           <ChucVuList />

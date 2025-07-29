@@ -6,13 +6,13 @@ import { getHeSoTrachNhiems } from "apis/he-so-trach-nhiem";
 export function HeSoPhuCapList() {
   const { data: heSoPhuCaps } = useQuery({
     // Luôn lấy error để debug nếu cần
-    queryKey: ["heSoPhuCaps"],
+    queryKey: ["he-so-phu-caps"],
     queryFn: getHeSoPhuCaps, // Không cần bọc trong arrow function nếu hàm không có tham số và không cần truyền thêm gì
     placeholderData: keepPreviousData,
   });
 
   const { data: heSoTrachNhiems } = useQuery({
-    queryKey: ["heSoTrachNhiems"],
+    queryKey: ["he-so-trach-nhiems"],
     queryFn: () => getHeSoTrachNhiems(),
     placeholderData: keepPreviousData,
   });

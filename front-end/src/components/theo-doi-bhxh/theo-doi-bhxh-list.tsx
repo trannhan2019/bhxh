@@ -14,7 +14,7 @@ import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
 
 export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
   const { data: mucLuongToiThieu } = useQuery({
-    queryKey: ["mucLuongToiThieu"],
+    queryKey: ["muc-luong-toi-thieu"],
     queryFn: () => getMucLuongToiThieuMoiNhat(),
     placeholderData: keepPreviousData,
   });
@@ -36,7 +36,7 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
         {data.map((item, index) => (
           <Table.Tr key={item.id}>
             <Table.Td>{index + 1}</Table.Td>
-            <Table.Td>
+            <Table.Td className="hover:underline hover:text-blue-500">
               <Anchor
                 component={Link}
                 to={`/theo-doi-bhxh/${item.id}`}

@@ -6,6 +6,7 @@ export type NhanVien = {
   ten: string;
   soThuTu: number;
   isActive: boolean;
+  daNghiViec: Date;
   createdAt: Date;
   updatedAt: Date;
 };

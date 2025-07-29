@@ -4,7 +4,7 @@ import { getMucLuongToiThieus } from "apis/muc-luong-toi-thieu";
 
 export function MucLuongToiThieuList() {
   const { data: mucLuongToiThieus } = useQuery({
-    queryKey: ["mucLuongToiThieus"],
+    queryKey: ["muc-luong-toi-thieus"],
     queryFn: () => getMucLuongToiThieus(),
     placeholderData: keepPreviousData,
   });

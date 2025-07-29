@@ -21,8 +21,27 @@ import ThongTinBhxh from '#models/thong_tin_bhxh'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
 
 export default class extends BaseSeeder {
+  // private async PhongSeeder() {
+  //   const fileName = 'phong.xlsx'
+  //   const worksheet = await this.excelService.getFile(fileName)
+  //   // Duyệt qua từng dòng (bắt đầu từ dòng thứ 2 nếu dòng 1 là tiêu đề)
+  //   worksheet.eachRow({ includeEmpty: false }, async (row, rowNumber) => {
+  //     if (rowNumber === 1) return // Bỏ qua dòng tiêu đề
+
+  //     const id = row.getCell(1).value as number
+  //     const ten = row.getCell(2).value as string
+  //     const tenVietTat = row.getCell(3).value as string
+  //     const soThuTu = row.getCell(4).value as number
+
+  //     await Phong.create({ id, ten, tenVietTat, soThuTu })
+  //   })
+
+  //   return 'Import successful'
+  // }
   async run() {
     await Phong.createMany(phongData)
+    // await this.PhongSeeder()
+
     await ChucVu.createMany(chucvuData)
     await NhanVien.createMany(nhanVienData)
     await MucLuongToiThieuVung.createMany(duLieuMucLuongToiThieu)

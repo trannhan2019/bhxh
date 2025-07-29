@@ -1,11 +1,23 @@
 import ExcelJS from 'exceljs'
 import { fileURLToPath } from 'url'
 import { join, dirname } from 'path'
+import Excel from 'exceljs'
 import type ThongTinBhxh from '#models/thong_tin_bhxh'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 export default class ExcelService {
+  async getFile(fileName: string) {
+    const filePath = join(__dirname, `../../database/data/${fileName}`)
+    //Đọc file excel
+    const workbook = new Excel.Workbook()
+    await workbook.xlsx.readFile(filePath)
+
+    const worksheet = workbook.worksheets[0]
+    if (!worksheet) throw new Error("Không tìm thấy worksheet 'Sheet1'")
+
+    return worksheet
+  }
   async xuatExcelBhxhWithTemplate(data: ThongTinBhxh) {
     // Đường dẫn đến file template
     const templatePath = join(__dirname, '../../resources/templates/bhxh_template.xlsx')

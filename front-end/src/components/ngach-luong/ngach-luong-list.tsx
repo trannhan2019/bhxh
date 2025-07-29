@@ -4,7 +4,7 @@ import { getNgachLuongBacLuongs } from "apis/ngach-luong";
 
 export function NgachLuongList() {
   const { data } = useQuery({
-    queryKey: ["ngachLuongBacLuongs"],
+    queryKey: ["ngach-luong-bac-luongs"],
     queryFn: () => getNgachLuongBacLuongs(),
     placeholderData: keepPreviousData,
   });

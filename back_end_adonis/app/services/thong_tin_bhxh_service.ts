@@ -6,7 +6,7 @@ export default class ThongTinBhxhService {
   getThongTinBhxhs() {
     return ThongTinBhxh.query()
       .preload('nhanVien', (nhanVienQuery) => {
-        nhanVienQuery.preload('phong')
+        nhanVienQuery.whereNull('daNghiViec').preload('phong')
       })
       .preload('bacLuong')
       .preload('ngachLuong', (ngachLuongQuery) => {

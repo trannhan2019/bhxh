@@ -14,8 +14,16 @@ import classes from "./sidebar.module.css";
 // Menu items.
 const tabs = {
   main: [
-    { link: "/theo-doi-bhxh", label: "Theo dõi BHXH", icon: IconBellRinging },
-    { link: "/", label: "Theo dõi .....", icon: IconMessages },
+    {
+      link: "/theo-doi-bhxh",
+      label: "Theo dõi thông tin BHXH",
+      icon: IconBellRinging,
+    },
+    {
+      link: "/theo-doi-nghi-viec",
+      label: "Theo dõi thông tin nghỉ việc",
+      icon: IconMessages,
+    },
   ],
   quanly: [
     {
@@ -75,7 +83,7 @@ export function Sidebar() {
 
       <div className={classes.navbarMain}>{links}</div>
 
-      <div className={classes.footer}>
+      {/* <div className={classes.footer}>
         <a
           href="#"
           className={classes.link}
@@ -93,7 +101,7 @@ export function Sidebar() {
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>
-      </div>
+      </div> */}
     </nav>
   );
 }

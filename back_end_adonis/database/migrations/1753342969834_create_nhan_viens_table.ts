@@ -19,6 +19,7 @@ export default class extends BaseSchema {
 
       table.integer('so_thu_tu').defaultTo(0).notNullable() // soThuTu Int @default(0)
       table.boolean('is_active').defaultTo(true).notNullable() // isActive Boolean @default(true)
+      table.dateTime('da_nghi_viec', { useTz: true }).nullable()
       table.timestamp('created_at')
       table.timestamp('updated_at').nullable()
     })

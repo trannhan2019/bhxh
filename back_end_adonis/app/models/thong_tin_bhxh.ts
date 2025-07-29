@@ -45,9 +45,6 @@ export default class ThongTinBhxh extends BaseModel {
   @column.dateTime()
   declare lastEmailSentAt: DateTime | null
 
-  @column.dateTime()
-  declare daNghiHuu: DateTime | null
-
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

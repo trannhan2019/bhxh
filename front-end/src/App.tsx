@@ -5,6 +5,8 @@ import { Navigate, Route, Routes } from "react-router";
 import TheoDoiBhxh from "./pages/theo-doi-bhxh";
 import TheoDoiBhxhId from "pages/theo-doi-bhxh/id";
 import QuanLyBacNgachLuong from "pages/quan-ly-bac-ngach-luong";
+import TheoDoiNghiViec from "pages/theo-doi-nghi-viec";
+import { NhanVienChiTiet } from "components/nhan-vien/nhan-vien-id";
 
 function App() {
   useDocumentTitle("Quản lý BHXH");
@@ -15,10 +17,13 @@ function App() {
         <Route path="/theo-doi-bhxh" element={<TheoDoiBhxh />} />
         <Route path="theo-doi-bhxh/:id" element={<TheoDoiBhxhId />} />
 
+        <Route path="/theo-doi-nghi-viec" element={<TheoDoiNghiViec />} />
+
         <Route
           path="/quan-ly-phong-nhanvien-chucvu"
           element={<QuanLyPhongNhanVienChucVu />}
         />
+        <Route path="/nhan-vien/:id" element={<NhanVienChiTiet />} />
         <Route
           path="/quan-ly-ngach-bac-luong"
           element={<QuanLyBacNgachLuong />}

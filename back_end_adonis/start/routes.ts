@@ -19,6 +19,7 @@ const BacLuongsController = () => import('#controllers/bac_luongs_controller')
 const NgachLuongsController = () => import('#controllers/ngach_luongs_controller')
 const ThongTinBhxhsController = () => import('#controllers/thong_tin_bhxhs_controller')
 const LichSuBhxhsController = () => import('#controllers/lich_su_bhxhs_controller')
+const ThongTinNghiViecsController = () => import('#controllers/thong_tin_nghi_viecs_controller')
 
 router.get('/', async () => {
   return {
@@ -34,6 +35,7 @@ router
     router.get('chuc-vu', [ChucVusController, 'index'])
     //nhan vien
     router.get('nhan-vien', [NhanViensController, 'index'])
+    router.get('nhan-vien/:id', [NhanViensController, 'show'])
     //muc luong toi thieu
     router.get('muc-luong-toi-thieu', [MucLuongToiThieuVungsController, 'index'])
     router.get('muc-luong-toi-thieu-moi-nhat', [
@@ -65,6 +67,8 @@ router
       .prefix('theo-doi-bhxh')
     //lich su Bhxh
     router.get('lich-su-bhxh/:id', [LichSuBhxhsController, 'getByNhanVien'])
+    router.get('theo-doi-nghi-viec', [ThongTinNghiViecsController, 'index'])
+    router.get('theo-doi-nghi-viec/xac-nhan/:id', [ThongTinNghiViecsController, 'index'])
     /////////////////////////////////////////
     router.get('test', [ThongTinBhxhsController, 'test'])
   })

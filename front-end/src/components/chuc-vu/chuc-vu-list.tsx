@@ -4,7 +4,7 @@ import { getChucVus } from "apis/chuc-vu";
 
 export function ChucVuList() {
   const { data: chucVus } = useQuery({
-    queryKey: ["chucVus"],
+    queryKey: ["chuc-vus"],
     queryFn: () => getChucVus(),
     placeholderData: keepPreviousData,
   });

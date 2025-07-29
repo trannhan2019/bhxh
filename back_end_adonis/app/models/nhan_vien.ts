@@ -31,6 +31,9 @@ export default class NhanVien extends BaseModel {
   @column()
   declare isActive: boolean
 
+  @column.dateTime()
+  declare daNghiViec: DateTime | null
+
   @hasOne(() => ThongTinBhxh)
   declare thongTinBHXH: HasOne<typeof ThongTinBhxh>
 

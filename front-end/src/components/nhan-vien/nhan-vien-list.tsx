@@ -2,7 +2,7 @@ import { Badge, Group, Pagination, Select, Table } from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getNhanViens } from "apis/nhan-vien";
 import { usePhanTrang } from "hooks/phan-trang";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 
 export function NhanVienList() {
   //get search params
@@ -11,7 +11,7 @@ export function NhanVienList() {
   const pageSizeParam = parseInt(searchParams.get("pageSize") || "10", 10);
 
   const { data: nhanViens } = useQuery({
-    queryKey: ["nhanViens", pageParam, pageSizeParam],
+    queryKey: ["nhan-viens", pageParam, pageSizeParam],
     queryFn: () => getNhanViens({ page: pageParam, pageSize: pageSizeParam }),
     placeholderData: keepPreviousData,
   });
@@ -27,7 +27,9 @@ export function NhanVienList() {
   const rows = nhanViens?.data?.map((element, idx) => (
     <Table.Tr key={element.id}>
       {/* <Table.Td>{(currentPage - 1) * pageSize + idx + 1}</Table.Td> */}
-      <Table.Td>{element.ten}</Table.Td>
+      <Table.Td className="hover:underline hover:text-blue-500">
+        <Link to={`/nhan-vien/${element.id}`}>{element.ten}</Link>
+      </Table.Td>
       <Table.Td>{element.phong.ten}</Table.Td>
       <Table.Td>{element.chucVu.ten}</Table.Td>
       <Table.Td>

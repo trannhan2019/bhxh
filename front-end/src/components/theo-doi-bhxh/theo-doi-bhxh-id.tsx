@@ -1,5 +1,5 @@
 import { Badge, Card, Divider, List, Text, Title } from "@mantine/core";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getMucLuongToiThieuMoiNhat } from "apis/muc-luong-toi-thieu";
 import {
   calculateTotalSalary,
@@ -18,9 +18,8 @@ export function TheoDoiBhxhChiTiet({
   data: ThongTinBHXHResponse | undefined;
 }) {
   const { data: mucLuong } = useQuery({
-    queryKey: ["mucLuongToiThieu"],
+    queryKey: ["muc-luong-toi-thieu"],
     queryFn: () => getMucLuongToiThieuMoiNhat(),
-    placeholderData: keepPreviousData,
   });
 
   const bacLuongTiepTheo =
