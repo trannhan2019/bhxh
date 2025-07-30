@@ -68,7 +68,7 @@ router
     //lich su Bhxh
     router.get('lich-su-bhxh/:id', [LichSuBhxhsController, 'getByNhanVien'])
     router.get('theo-doi-nghi-viec', [ThongTinNghiViecsController, 'index'])
-    router.get('theo-doi-nghi-viec/xac-nhan/:id', [ThongTinNghiViecsController, 'index'])
+    router.post('theo-doi-nghi-viec/xac-nhan/:id', [ThongTinNghiViecsController, 'xacNhan'])
     /////////////////////////////////////////
     router.get('test', [ThongTinBhxhsController, 'test'])
   })

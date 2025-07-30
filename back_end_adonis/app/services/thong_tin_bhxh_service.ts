@@ -5,8 +5,11 @@ export default class ThongTinBhxhService {
   private SO_NGAY_KIEM_TRA = 15
   getThongTinBhxhs() {
     return ThongTinBhxh.query()
-      .preload('nhanVien', (nhanVienQuery) => {
-        nhanVienQuery.whereNull('daNghiViec').preload('phong')
+      .whereHas('nhanVien', (query) => {
+        query.whereNull('daNghiViec')
+      })
+      .preload('nhanVien', (query) => {
+        query.preload('phong')
       })
       .preload('bacLuong')
       .preload('ngachLuong', (ngachLuongQuery) => {

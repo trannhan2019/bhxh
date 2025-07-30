@@ -1,5 +1,7 @@
 import axiosClient from "lib/axios";
 import type { ThongTinNghiViecWithNhanVien } from "types/thong-tin-nghi-viec";
+import { schema } from "components/theo-doi-nghi-viec/nghi-viec-modal-xac-nhan";
+import { z } from "zod";
 
 const apiUrl = "/api/theo-doi-nghi-viec";
 
@@ -10,7 +12,10 @@ export const getTheoDoiNghiViecs = async () => {
   return response.data;
 };
 
-export const xacNhanNghiViec = async (id: number) => {
-  const response = await axiosClient.post(`${apiUrl}/xac-nhan/${id}`);
+export const xacNhanNghiViec = async (
+  id: number,
+  values: z.infer<typeof schema>
+) => {
+  const response = await axiosClient.post(`${apiUrl}/xac-nhan/${id}`, values);
   return response.data;
 };

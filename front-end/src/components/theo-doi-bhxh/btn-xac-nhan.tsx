@@ -1,4 +1,6 @@
-import { Button } from "@mantine/core";
+import { Button, Text } from "@mantine/core";
+import { modals } from "@mantine/modals";
+import { notifications } from "@mantine/notifications";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { xacNhanNangLuong } from "apis/thong-tin-bhxh";
 import { tinhSoNgayNangBacConLai } from "lib/util";
@@ -10,7 +12,8 @@ export function BtnXacNhan({
   data: ThongTinBHXHResponse | undefined;
 }) {
   const queryClient = useQueryClient();
-  const handleXacNhan = useMutation({
+
+  const { mutate, isPending } = useMutation({
     mutationFn: (id: number) => xacNhanNangLuong(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["theo-doi-bhxhs"] });
@@ -21,22 +24,43 @@ export function BtnXacNhan({
       queryClient.invalidateQueries({
         queryKey: ["lich-su-bhxh", data?.nhanVienId],
       });
-      alert("Xác nhận nâng lương thành công");
+      notifications.show({
+        title: "Thông báo!",
+        message: "Xác nhân nâng lương thành công",
+      });
     },
-    onError: (error) => {
-      console.log(error);
-      alert("Không thể xác nhân. Vui liệu thử lại.");
+    onError: () => {
+      notifications.show({
+        title: "Thông báo!",
+        message: "Xác nhân nâng lương không thành công",
+        color: "red",
+      });
     },
   });
-  console.log("id:3", data?.id);
+  const handleXacNhan = () =>
+    modals.openConfirmModal({
+      title: "Xác nhận nâng lương",
+      children: (
+        <Text>
+          Thời gian còn{" "}
+          {tinhSoNgayNangBacConLai(
+            data?.ngayApDung,
+            data?.bacLuong?.thoiGianNangBac || 0
+          )}{" "}
+          ngày
+        </Text>
+      ),
+      labels: { confirm: "Xác nhận", cancel: "Hủy" },
+      onConfirm: () => mutate(data?.id || 0),
+    });
 
   return (
     <Button
       mt={"md"}
       variant="outline"
       color="red"
-      onClick={() => handleXacNhan.mutate(data?.id || 0)}
-      loading={handleXacNhan.isPending}
+      onClick={() => handleXacNhan()}
+      loading={isPending}
     >
       Xác nhận nâng bậc tiếp theo: Thời gian còn{" "}
       {tinhSoNgayNangBacConLai(

@@ -1,8 +1,14 @@
 import { Button, Group, Modal, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { DatePickerInput, DatesProvider } from "@mantine/dates";
-import "dayjs/locale/vi";
+import { DatePickerInput } from "@mantine/dates";
+import { zodResolver } from "mantine-form-zod-resolver";
+import { z } from "zod";
+
 import { IconCalendar } from "@tabler/icons-react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { xacNhanNghiViec } from "apis/thong-tin-nghi-viec";
+import { notifications } from "@mantine/notifications";
+import { useNavigate } from "react-router";
 
 interface Props {
   id: number;
@@ -10,16 +16,50 @@ interface Props {
   close: () => void;
 }
 
+export const schema = z.object({
+  thoiGianKetThuc: z.string().nullable(),
+  thongTinKhac: z.string(),
+});
+
 export function ModalXacNhanNghiViec({ id, opened, close }: Props) {
+  const { mutate, isPending } = useMutation({
+    mutationFn: (values: z.infer<typeof schema>) => xacNhanNghiViec(id, values),
+  });
+  const queryClient = useQueryClient();
+  const router = useNavigate();
+
   const form = useForm({
     initialValues: {
       thoiGianKetThuc: null,
       thongTinKhac: "",
     },
+    mode: "controlled",
+    validate: zodResolver(schema),
   });
 
-  const handleSubmit = form.onSubmit(async (values) => {
+  const handleSubmit = form.onSubmit((values) => {
     console.log(values);
+
+    mutate(values, {
+      onSuccess: () => {
+        notifications.show({
+          title: "Thông báo!",
+          message: "Thành công",
+          color: "green",
+        });
+        form.reset();
+        queryClient.invalidateQueries({ queryKey: ["theo-doi-nghi-viecs"] });
+        close();
+        router("/theo-doi-nghi-viec");
+      },
+      onError: () => {
+        notifications.show({
+          title: "Thông báo!",
+          message: "Thành công",
+          color: "red",
+        });
+      },
+    });
   });
   return (
     <Modal
@@ -29,23 +69,24 @@ export function ModalXacNhanNghiViec({ id, opened, close }: Props) {
       title="Cập nhật thông tin"
     >
       <form onSubmit={handleSubmit}>
-        <DatesProvider settings={{ locale: "vi" }}>
-          <DatePickerInput
-            leftSection={<IconCalendar size={18} stroke={1.5} />}
-            leftSectionPointerEvents="none"
-            clearable
-            label="Chọn thời gian bắt đầu nghỉ"
-            placeholder="DD/MM/YYYY"
-            valueFormat="DD/MM/YYYY"
-            {...form.getInputProps("thoiGianKetThuc")}
-          />
-        </DatesProvider>
+        <DatePickerInput
+          leftSection={<IconCalendar size={18} stroke={1.5} />}
+          // leftSectionPointerEvents="none"
+          clearable
+          label="Chọn thời gian bắt đầu nghỉ"
+          key={form.key("thoiGianKetThuc")}
+          valueFormat="DD/MM/YYYY"
+          {...form.getInputProps("thoiGianKetThuc")}
+        />
         <TextInput
           label="Thông tin khác"
+          key={form.key("thongTinKhac")}
           {...form.getInputProps("thongTinKhac")}
         />
         <Group mt="md">
-          <Button type="submit">Xác nhận</Button>
+          <Button type="submit" loading={isPending}>
+            Xác nhận
+          </Button>
           <Button variant="outline" onClick={close}>
             Hủy
           </Button>

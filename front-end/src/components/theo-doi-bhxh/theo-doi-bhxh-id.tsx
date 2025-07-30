@@ -11,6 +11,7 @@ import {
 } from "lib/util";
 import { BtnXacNhan } from "./btn-xac-nhan";
 import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
+import { IconCalendar } from "@tabler/icons-react";
 
 export function TheoDoiBhxhChiTiet({
   data,
@@ -75,9 +76,12 @@ export function TheoDoiBhxhChiTiet({
       </Text>
       <Divider my="md" />
 
-      <Title order={4} c="blue.6" mb={"md"}>
-        Thông tin nâng bậc tiếp theo
-      </Title>
+      <div className="flex items-center gap-2 mb-3">
+        <IconCalendar size={30} color="green" />
+        <Title order={4} c="blue.6">
+          Thông tin nâng bậc tiếp theo
+        </Title>
+      </div>
       {isBacLuongMax(data?.bacLuong, data?.ngachLuong.bacLuong) ? (
         <Badge variant="outline" color="green">
           Đã max bậc

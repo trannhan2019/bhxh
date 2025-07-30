@@ -33,7 +33,7 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <Table.Tr key={item.id}>
             <Table.Td>{index + 1}</Table.Td>
             <Table.Td className="hover:underline hover:text-blue-500">

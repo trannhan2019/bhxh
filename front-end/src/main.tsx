@@ -7,6 +7,11 @@ import "./index.css";
 import App from "./App.tsx";
 import { theme } from "./theme";
 import { MantineProvider } from "@mantine/core";
+import { NavigationProgress } from "@mantine/nprogress";
+import { Notifications } from "@mantine/notifications";
+import { ModalsProvider } from "@mantine/modals";
+import { DatesProvider } from "@mantine/dates";
+import "dayjs/locale/vi";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,7 +28,13 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <MantineProvider theme={theme}>
-          <App />
+          <NavigationProgress />
+          <Notifications />
+          <ModalsProvider>
+            <DatesProvider settings={{ locale: "vi" }}>
+              <App />
+            </DatesProvider>
+          </ModalsProvider>
         </MantineProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

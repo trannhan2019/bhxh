@@ -29,11 +29,13 @@ export const isGanDenHanNangBac = (
 export const formatNgayVN = (date: Date | null | undefined) =>
   dayjs(date).format("DD/MM/YYYY");
 
+//so ngay nang bac tiep theo + 1 day
 export const formatNgayApDungTiepTheo = (
   ngayApDung: Date | undefined,
   thoiGianNangBac: number
 ) => {
-  return dayjs(ngayApDung).add(thoiGianNangBac, "day").format("DD/MM/YYYY");
+  const soNgayNangBac = thoiGianNangBac + 1;
+  return dayjs(ngayApDung).add(soNgayNangBac, "day").format("DD/MM/YYYY");
 };
 
 export const formatColorTheoNgayApDung = (

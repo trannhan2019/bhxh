@@ -10,7 +10,6 @@ export default function TheoDoiBhxh() {
     queryKey: ["theo-doi-bhxhs"],
     queryFn: () => getTheoDoiBHXHs(),
     placeholderData: keepPreviousData,
-    retry: false,
   });
   return (
     <div>
