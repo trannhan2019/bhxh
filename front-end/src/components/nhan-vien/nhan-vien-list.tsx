@@ -1,7 +1,7 @@
-import { Badge, Group, Pagination, Select, Table } from "@mantine/core";
+import { Badge, Table } from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getNhanViens } from "apis/nhan-vien";
-import { usePhanTrang } from "hooks/phan-trang";
+// import { usePhanTrang } from "hooks/phan-trang";
 import { Link, useSearchParams } from "react-router";
 
 export function NhanVienList() {
@@ -24,7 +24,7 @@ export function NhanVienList() {
   //   handlePageSizeChange,
   // } = usePhanTrang(nhanViens?.data.total || 0);
 
-  const rows = nhanViens?.data?.map((element, idx) => (
+  const rows = nhanViens?.data?.map((element) => (
     <Table.Tr key={element.id}>
       {/* <Table.Td>{(currentPage - 1) * pageSize + idx + 1}</Table.Td> */}
       <Table.Td className="hover:underline hover:text-blue-500">

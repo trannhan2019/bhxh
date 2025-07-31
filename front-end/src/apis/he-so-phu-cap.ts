@@ -1,7 +1,7 @@
 import axiosClient from "lib/axios";
 import type { HeSoPhuCap } from "types/he-so-phu-cap";
 
-const apiUrl = "/api/he-so-phu-cap";
+const apiUrl = "/he-so-phu-cap";
 
 export const getHeSoPhuCaps = async () => {
   const response = await axiosClient.get<HeSoPhuCap[]>(apiUrl);

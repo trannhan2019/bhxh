@@ -14,8 +14,8 @@ export function HeaderNotifacation({ data }: Props) {
       <Menu.Target>
         <Indicator
           color="red"
-          disabled={data?.length === 0 || undefined}
-          processing
+          // disabled={data?.length === 0 || undefined}
+          processing={data?.length !== 0 || false}
           inline
           label={data?.length}
           size={14}

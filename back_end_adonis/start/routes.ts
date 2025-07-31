@@ -21,11 +21,11 @@ const ThongTinBhxhsController = () => import('#controllers/thong_tin_bhxhs_contr
 const LichSuBhxhsController = () => import('#controllers/lich_su_bhxhs_controller')
 const ThongTinNghiViecsController = () => import('#controllers/thong_tin_nghi_viecs_controller')
 
-router.get('/', async () => {
-  return {
-    hello: 'world',
-  }
-})
+// router.get('/', async () => {
+//   return {
+//     hello: 'world',
+//   }
+// })
 
 router
   .group(() => {
@@ -78,3 +78,6 @@ router
 // router.post('/phongs', 'PhongsController.store')
 // router.put('/phongs/:id', 'PhongsController.update')
 // router.delete('/phongs/:id', 'PhongsController.destroy')
+router.get('/*', ({ response }) => {
+  return response.download('public/index.html')
+})

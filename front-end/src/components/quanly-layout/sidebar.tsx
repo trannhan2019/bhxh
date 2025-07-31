@@ -4,10 +4,8 @@ import { useEffect, useState } from "react";
 import {
   IconBellRinging,
   IconLicense,
-  IconLogout,
   IconMessages,
   IconShoppingCart,
-  IconSwitchHorizontal,
 } from "@tabler/icons-react";
 import classes from "./sidebar.module.css";
 

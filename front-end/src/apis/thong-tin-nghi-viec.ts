@@ -3,7 +3,7 @@ import type { ThongTinNghiViecWithNhanVien } from "types/thong-tin-nghi-viec";
 import { schema } from "components/theo-doi-nghi-viec/nghi-viec-modal-xac-nhan";
 import { z } from "zod";
 
-const apiUrl = "/api/theo-doi-nghi-viec";
+const apiUrl = "/theo-doi-nghi-viec";
 
 export const getTheoDoiNghiViecs = async () => {
   const response = await axiosClient.get<ThongTinNghiViecWithNhanVien[]>(

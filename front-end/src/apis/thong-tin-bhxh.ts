@@ -4,7 +4,7 @@ import type {
   ThongTinBHXHWithNhanVienNgachLuongBacLuong,
 } from "types/thong-tin-bhxh";
 
-const apiUrl = "/api/theo-doi-bhxh";
+const apiUrl = "/theo-doi-bhxh";
 
 export const getTheoDoiBHXHs = () => {
   return axiosClient.get<ThongTinBHXHResponse[]>(apiUrl);

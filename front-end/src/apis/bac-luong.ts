@@ -1,7 +1,7 @@
 // import axiosClient from "lib/axios";
 // import type { BacLuongWithNgach } from "types/bac-luong";
 
-// const apiUrl = "/api/bac-luong";
+// const apiUrl = "/bac-luong";
 
 // export const getBacNgachLuongTiepTheo = (
 //   bacLuong: number | undefined,
