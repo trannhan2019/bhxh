@@ -1,0 +1,150 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Phong {
+  id         Int        @id @default(autoincrement())
+  ten        String
+  tenVietTat String
+  soThuTu    Int        @default(0)
+  nhanViens  NhanVien[]
+}
+
+model ChucVu {
+  id         Int        @id @default(autoincrement())
+  ten        String
+  tenVietTat String
+  nhanViens  NhanVien[]
+}
+
+model NhanVien {
+  id  Int    @id @default(autoincrement())
+  ten String
+
+  phongId Int
+  phong   Phong @relation(fields: [phongId], references: [id])
+
+  chucVuId Int
+  chucVu   ChucVu @relation(fields: [chucVuId], references: [id])
+
+  soThuTu          Int               @default(0)
+  isActive         Boolean           @default(true)
+  daNghiViec       DateTime?
+  thongTinNghiViec ThongTinNghiViec?
+
+  thongTinBhxh ThongTinBhxh?
+
+  lichSuBhxhs LichSuBhxh[]
+}
+
+model MucLuongToiThieuVung {
+  id             Int          @id @default(autoincrement())
+  mucLuong       Int
+  thoiGianApdung DateTime
+  canCuPhapLy    String?
+  lichSuBhxhs    LichSuBhxh[]
+}
+
+model HeSoPhuCap {
+  id            Int            @id @default(autoincrement())
+  chucDanh      String
+  heSo          Float
+  thongtinBhxhs ThongTinBhxh[]
+  lichSuBhxhs   LichSuBhxh[]
+}
+
+model HeSoTrachNhiem {
+  id            Int            @id @default(autoincrement())
+  chucDanh      String
+  heSo          Float
+  thongtinBhxhs ThongTinBhxh[]
+  lichSuBhxhs   LichSuBhxh[]
+}
+
+model NgachLuong {
+  id            Int            @id @default(autoincrement())
+  maNgach       String         @unique // A1, A2, A3, A4
+  chucDanh      String // Ví dụ: "Chuyên viên, Kinh tế viên, Kỹ sư"
+  bacLuongs     BacLuong[]
+  thongTinBhxhs ThongTinBhxh[]
+}
+
+model BacLuong {
+  id              Int            @id @default(autoincrement())
+  bac             Int // 1,2,3,4
+  heSo            Float
+  thoiGianNangBac Int // ngày
+  ngachLuongId    Int
+  ngachLuong      NgachLuong     @relation(fields: [ngachLuongId], references: [id])
+  thongTinBhxhs   ThongTinBhxh[]
+  lichSuBhxhs     LichSuBhxh[]
+
+  //@@unique([bac, ngachId]) // tránh trùng bậc trong 1 ngạch
+}
+
+model ThongTinBhxh {
+  id Int @id @default(autoincrement())
+
+  nhanVienId Int      @unique
+  nhanVien   NhanVien @relation(fields: [nhanVienId], references: [id])
+
+  ngachLuongId Int
+  ngachLuong   NgachLuong @relation(fields: [ngachLuongId], references: [id])
+
+  bacLuongId Int
+  bacLuong   BacLuong @relation(fields: [bacLuongId], references: [id])
+
+  phuCapId Int?
+  phuCap   HeSoPhuCap? @relation(fields: [phuCapId], references: [id])
+
+  trachNhiemId Int?
+  trachNhiem   HeSoTrachNhiem? @relation(fields: [trachNhiemId], references: [id])
+
+  ngayApDung DateTime
+  thongTin   String?
+
+  lastEmailSentAt DateTime? // Có thể null nếu chưa gửi email lần nào
+}
+
+model LichSuBhxh {
+  id Int @id @default(autoincrement())
+
+  nhanVienId Int
+  nhanVien   NhanVien @relation(fields: [nhanVienId], references: [id])
+
+  bacLuongId Int
+  bacLuong   BacLuong @relation(fields: [bacLuongId], references: [id])
+
+  phuCapId Int?
+  phuCap   HeSoPhuCap? @relation(fields: [phuCapId], references: [id])
+
+  trachNhiemId Int?
+  trachNhiem   HeSoTrachNhiem? @relation(fields: [trachNhiemId], references: [id])
+
+  mucLuongToiThieuVungId Int
+  mucLuongToiThieuVung   MucLuongToiThieuVung @relation(fields: [mucLuongToiThieuVungId], references: [id])
+
+  ngayApDung DateTime?
+  thongTinQD String?
+}
+
+model ThongTinNghiViec {
+  id Int @id @default(autoincrement())
+
+  nhanVienId Int      @unique
+  nhanVien   NhanVien @relation(fields: [nhanVienId], references: [id])
+
+  thoiGianKetThuc DateTime
+  thongTinKhac    String?
+}
