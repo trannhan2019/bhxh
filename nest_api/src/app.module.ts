@@ -13,6 +13,8 @@ import { BacLuongModule } from './bac-luong/bac-luong.module';
 import { ThongTinBhxhModule } from './thong-tin-bhxh/thong-tin-bhxh.module';
 import { ReportModule } from './report/report.module';
 import { MailerModule } from '@nestjs-modules/mailer';
+import { LichSuBhxhModule } from './lich-su-bhxh/lich-su-bhxh.module';
+import { ThongTinNghiViecModule } from './thong-tin-nghi-viec/thong-tin-nghi-viec.module';
 
 @Module({
   imports: [
@@ -37,6 +39,8 @@ import { MailerModule } from '@nestjs-modules/mailer';
         },
       },
     }),
+    LichSuBhxhModule,
+    ThongTinNghiViecModule,
   ],
   controllers: [AppController],
   providers: [AppService],

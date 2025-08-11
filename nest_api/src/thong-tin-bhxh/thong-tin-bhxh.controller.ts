@@ -89,6 +89,11 @@ export class ThongTinBhxhController {
     response.send(buffer);
   }
 
+  @Get('xac-nhan/:id')
+  async xacNhan(@Param('id', ParseIntPipe) id: number) {
+    return this.thongTinBhxhService.xacNhan(id);
+  }
+
   //dynamic route last router
   @Get(':id')
   async thongTinBhxh(@Param('id', ParseIntPipe) id: number) {

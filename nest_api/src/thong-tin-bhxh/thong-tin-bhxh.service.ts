@@ -80,4 +80,45 @@ export class ThongTinBhxhService {
 
     return locThongTin;
   }
+
+  async xacNhan(id: number) {
+    const thongTin = await this.thongTinBhxh(id);
+    if (!thongTin) throw new Error('Not found');
+    const isMaxBac =
+      thongTin.ngachLuong.bacLuongs.length === thongTin.bacLuong.bac;
+    const kiemTraDieuKienNgayNangLuong =
+      dayjs(thongTin.ngayApDung)
+        .add(thongTin.bacLuong.thoiGianNangBac, 'day')
+        .diff(dayjs(), 'day') < this.SO_NGAY_KIEM_TRA;
+
+    if (!isMaxBac && kiemTraDieuKienNgayNangLuong) {
+      const bacLuongMoi = await this.prisma.bacLuong.findFirstOrThrow({
+        where: {
+          bac: thongTin.bacLuong.bac + 1,
+          ngachLuongId: thongTin.ngachLuongId,
+        },
+      });
+      //update bậc lương BHXH
+      await this.prisma.thongTinBhxh.update({
+        where: { id: id },
+        data: {
+          bacLuongId: bacLuongMoi.id,
+          ngayApDung: dayjs(thongTin.ngayApDung)
+            .add(thongTin.bacLuong.thoiGianNangBac, 'day')
+            .toDate(),
+        },
+      });
+      // Lấy mức lương tối thiểu vùng mới nhất
+      const mucLuong = await this.prisma.mucLuongToiThieuVung.findFirstOrThrow({
+        orderBy: { thoiGianApdung: 'desc' },
+      });
+      // Thêm mới lịch sử BHXH
+      await this.prisma.thongTinBhxh.update({
+        where: { id: id },
+        data: {
+          mucLuongToiThieuId: mucLuong.id,
+        },
+      });
+    }
+  }
 }
