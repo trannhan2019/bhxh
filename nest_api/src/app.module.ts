@@ -15,10 +15,13 @@ import { ReportModule } from './report/report.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { LichSuBhxhModule } from './lich-su-bhxh/lich-su-bhxh.module';
 import { ThongTinNghiViecModule } from './thong-tin-nghi-viec/thong-tin-nghi-viec.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
     PrismaModule,
+    ScheduleModule.forRoot(),
     PhongModule,
     ChucVuModule,
     NhanVienModule,
@@ -41,6 +44,7 @@ import { ThongTinNghiViecModule } from './thong-tin-nghi-viec/thong-tin-nghi-vie
     }),
     LichSuBhxhModule,
     ThongTinNghiViecModule,
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -4,11 +4,11 @@ import type { Phong } from "./phong";
 export type NhanVien = {
   id: number;
   ten: string;
+  phongId: number;
+  chucVuId: number;
   soThuTu: number;
   isActive: boolean;
   daNghiViec: Date;
-  createdAt: Date;
-  updatedAt: Date;
 };
 
 export type NhanVienWithPhong = NhanVien & { phong: Phong };

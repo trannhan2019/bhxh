@@ -4,7 +4,7 @@ export type ThongTinNghiViec = {
   id: number;
   nhanVienId: number;
   thoiGianKetThuc: Date;
-  thongTinKhac: string;
+  thongTinKhac: string | null;
 };
 
 export type ThongTinNghiViecWithNhanVien = ThongTinNghiViec & {

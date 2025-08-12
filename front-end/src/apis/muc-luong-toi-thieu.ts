@@ -9,7 +9,7 @@ export const getMucLuongToiThieus = () => {
 
 export const getMucLuongToiThieuMoiNhat = async () => {
   const response = await axiosClient.get<MucLuongToiThieu>(
-    `${apiUrl}-moi-nhat`
+    `${apiUrl}/moi-nhat`
   );
   return response.data;
 };

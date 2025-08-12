@@ -25,7 +25,7 @@ export function TheoDoiBhxhChiTiet({
 
   const bacLuongTiepTheo =
     data?.bacLuong &&
-    timBacLuongTiepTheo(data.bacLuong, data.ngachLuong.bacLuong);
+    timBacLuongTiepTheo(data.bacLuong, data.ngachLuong.bacLuongs);
   // console.log("id:2", data?.id);
 
   return (
@@ -82,7 +82,7 @@ export function TheoDoiBhxhChiTiet({
           Thông tin nâng bậc tiếp theo
         </Title>
       </div>
-      {isBacLuongMax(data?.bacLuong, data?.ngachLuong.bacLuong) ? (
+      {isBacLuongMax(data?.bacLuong, data?.ngachLuong.bacLuongs) ? (
         <Badge variant="outline" color="green">
           Đã max bậc
         </Badge>

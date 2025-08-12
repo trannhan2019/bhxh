@@ -8,7 +8,12 @@ export class MucLuongToiThieuController {
   ) {}
 
   @Get()
-  async mucLuongToiThieu() {
-    return await this.mucLuongToiThieuService.mucLuongToiThieu();
+  async mucLuongToiThieus() {
+    return await this.mucLuongToiThieuService.mucLuongToiThieus();
+  }
+
+  @Get('moi-nhat')
+  async mucLuongToiThieuMoiNhat() {
+    return await this.mucLuongToiThieuService.mucLuongToiThieuMoiNhat();
   }
 }

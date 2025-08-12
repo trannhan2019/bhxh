@@ -5,5 +5,6 @@ import { NhanVienController } from './nhan-vien.controller';
 @Module({
   controllers: [NhanVienController],
   providers: [NhanVienService],
+  exports: [NhanVienService],
 })
 export class NhanVienModule {}

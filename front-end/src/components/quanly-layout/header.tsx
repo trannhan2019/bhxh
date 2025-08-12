@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { HeaderNotifacation } from "./header-notifacation";
 import { HeaderUser } from "./header-user";
-import { getBhxhNotifacationEmail } from "apis/thong-tin-bhxh";
+import { getBhxhNotificationEmail } from "apis/thong-tin-bhxh";
 import { Alert } from "@mantine/core";
 import { useEffect, useState } from "react";
 
 export function Header() {
   const { data } = useQuery({
     queryKey: ["theo-doi-bhxh-notifacation"],
-    queryFn: () => getBhxhNotifacationEmail(),
+    queryFn: () => getBhxhNotificationEmail(),
   });
   const [showAlert, setShowAlert] = useState(false);
   useEffect(() => {

@@ -5,5 +5,6 @@ import { ThongTinNghiViecController } from './thong-tin-nghi-viec.controller';
 @Module({
   controllers: [ThongTinNghiViecController],
   providers: [ThongTinNghiViecService],
+  exports: [ThongTinNghiViecService],
 })
 export class ThongTinNghiViecModule {}

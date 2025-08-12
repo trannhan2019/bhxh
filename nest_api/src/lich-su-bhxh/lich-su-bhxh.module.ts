@@ -5,5 +5,6 @@ import { LichSuBhxhController } from './lich-su-bhxh.controller';
 @Module({
   controllers: [LichSuBhxhController],
   providers: [LichSuBhxhService],
+  exports: [LichSuBhxhService],
 })
 export class LichSuBhxhModule {}

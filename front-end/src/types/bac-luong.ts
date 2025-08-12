@@ -6,8 +6,6 @@ export type BacLuong = {
   heSo: number;
   thoiGianNangBac: number;
   ngachLuongId: number;
-  createdAt: Date;
-  updatedAt: Date;
 };
 
 export type BacLuongWithNgach = BacLuong & {

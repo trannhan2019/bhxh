@@ -4,7 +4,7 @@ import type {
   ThongTinBHXHWithNhanVienNgachLuongBacLuong,
 } from "types/thong-tin-bhxh";
 
-const apiUrl = "/theo-doi-bhxh";
+const apiUrl = "/thong-tin-bhxh";
 
 export const getTheoDoiBHXHs = () => {
   return axiosClient.get<ThongTinBHXHResponse[]>(apiUrl);
@@ -27,10 +27,10 @@ export const reportExcel = async (id: number) => {
   return response.data;
 };
 
-export const getBhxhNotifacationEmail = async () => {
+export const getBhxhNotificationEmail = async () => {
   const response = await axiosClient.get<
     ThongTinBHXHWithNhanVienNgachLuongBacLuong[]
-  >(`${apiUrl}/send-email`);
+  >(`${apiUrl}/notification`);
   return response.data;
 };
 

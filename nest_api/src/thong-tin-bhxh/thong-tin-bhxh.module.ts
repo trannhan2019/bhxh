@@ -7,5 +7,6 @@ import { ReportModule } from 'src/report/report.module';
   imports: [ReportModule],
   controllers: [ThongTinBhxhController],
   providers: [ThongTinBhxhService],
+  exports: [ThongTinBhxhService],
 })
 export class ThongTinBhxhModule {}

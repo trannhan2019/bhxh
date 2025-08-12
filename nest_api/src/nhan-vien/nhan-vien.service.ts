@@ -15,4 +15,11 @@ export class NhanVienService {
     const total = await this.prisma.nhanVien.count();
     return { data: nhanVienList, total };
   }
+
+  // updateNghiViec(id: number, data: UpdateNghiViecDto) {
+  //   return this.prisma.nhanVien.update({
+  //     where: { id },
+  //     data: data,
+  //   });
+  // }
 }

@@ -4,8 +4,6 @@ export type NgachLuong = {
   id: number;
   maNgach: string;
   chucDanh: string;
-  createdAt: Date;
-  updatedAt: Date;
 };
 
-export type NgachLuongWithBac = NgachLuong & { bacLuong: BacLuong[] };
+export type NgachLuongWithBac = NgachLuong & { bacLuongs: BacLuong[] };

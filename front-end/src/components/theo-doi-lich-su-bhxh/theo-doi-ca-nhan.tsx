@@ -9,6 +9,7 @@ export function TheoDoiLichSuCaNhan({ id }: { id: number }) {
     queryKey: ["lich-su-bhxh", id],
     queryFn: () => getLichSuBhxhByNhanVien(id),
   });
+  console.log(id);
 
   return (
     <Paper shadow="md" radius="md" mt={"md"}>

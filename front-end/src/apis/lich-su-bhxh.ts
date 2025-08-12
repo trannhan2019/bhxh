@@ -5,7 +5,7 @@ const apiUrl = "/lich-su-bhxh";
 
 export const getLichSuBhxhByNhanVien = async (id: number) => {
   const response = await axiosClient.get<LichSuBhxhByNhanVien[]>(
-    `${apiUrl}/${id}`
+    `${apiUrl}/nhan-vien/${id}`
   );
   return response.data;
 };

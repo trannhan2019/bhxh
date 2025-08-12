@@ -5,7 +5,12 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class MucLuongToiThieuService {
   constructor(private prisma: PrismaService) {}
 
-  async mucLuongToiThieu() {
+  async mucLuongToiThieus() {
+    return await this.prisma.mucLuongToiThieuVung.findMany({
+      orderBy: { thoiGianApdung: 'desc' },
+    });
+  }
+  async mucLuongToiThieuMoiNhat() {
     return await this.prisma.mucLuongToiThieuVung.findFirstOrThrow({
       orderBy: { thoiGianApdung: 'desc' },
     });

@@ -113,12 +113,18 @@ export class ThongTinBhxhService {
         orderBy: { thoiGianApdung: 'desc' },
       });
       // Thêm mới lịch sử BHXH
-      await this.prisma.thongTinBhxh.update({
-        where: { id: id },
+      await this.prisma.lichSuBhxh.create({
         data: {
-          mucLuongToiThieuId: mucLuong.id,
+          nhanVienId: thongTin.nhanVienId,
+          bacLuongId: bacLuongMoi.id,
+          phuCapId: thongTin.phuCapId,
+          trachNhiemId: thongTin.trachNhiemId,
+          mucLuongToiThieuVungId: mucLuong.id,
+          ngayApDung: dayjs(thongTin.ngayApDung).toDate(),
+          thongTinQD: thongTin.thongTin,
         },
       });
     }
+    return thongTin;
   }
 }
