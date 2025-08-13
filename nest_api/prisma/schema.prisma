@@ -57,38 +57,42 @@ model MucLuongToiThieuVung {
 }
 
 model HeSoPhuCap {
-  id            Int            @id @default(autoincrement())
-  chucDanh      String
-  heSo          Float
-  thongtinBhxhs ThongTinBhxh[]
-  lichSuBhxhs   LichSuBhxh[]
+  id                Int            @id @default(autoincrement())
+  chucDanh          String
+  heSo              Float
+  thongtinBhxhs     ThongTinBhxh[] @relation("phuCap")
+  thongtinBhxhsNext ThongTinBhxh[] @relation("phuCapNext")
+  lichSuBhxhs       LichSuBhxh[]
 }
 
 model HeSoTrachNhiem {
-  id            Int            @id @default(autoincrement())
-  chucDanh      String
-  heSo          Float
-  thongtinBhxhs ThongTinBhxh[]
-  lichSuBhxhs   LichSuBhxh[]
+  id                Int            @id @default(autoincrement())
+  chucDanh          String
+  heSo              Float
+  thongtinBhxhs     ThongTinBhxh[] @relation("trachNhiem")
+  thongtinBhxhsNext ThongTinBhxh[] @relation("trachNhiemNext")
+  lichSuBhxhs       LichSuBhxh[]
 }
 
 model NgachLuong {
-  id            Int            @id @default(autoincrement())
-  maNgach       String         @unique // A1, A2, A3, A4
-  chucDanh      String // Ví dụ: "Chuyên viên, Kinh tế viên, Kỹ sư"
-  bacLuongs     BacLuong[]
-  thongTinBhxhs ThongTinBhxh[]
+  id                Int            @id @default(autoincrement())
+  maNgach           String         @unique // A1, A2, A3, A4
+  chucDanh          String // Ví dụ: "Chuyên viên, Kinh tế viên, Kỹ sư"
+  bacLuongs         BacLuong[]
+  thongTinBhxhs     ThongTinBhxh[] @relation("ngachLuong")
+  thongTinBhxhsNext ThongTinBhxh[] @relation("ngachLuongNext")
 }
 
 model BacLuong {
-  id              Int            @id @default(autoincrement())
-  bac             Int // 1,2,3,4
-  heSo            Float
-  thoiGianNangBac Int // ngày
-  ngachLuongId    Int
-  ngachLuong      NgachLuong     @relation(fields: [ngachLuongId], references: [id])
-  thongTinBhxhs   ThongTinBhxh[]
-  lichSuBhxhs     LichSuBhxh[]
+  id                Int            @id @default(autoincrement())
+  bac               Int // 1,2,3,4
+  heSo              Float
+  thoiGianNangBac   Int // ngày
+  ngachLuongId      Int
+  ngachLuong        NgachLuong     @relation(fields: [ngachLuongId], references: [id])
+  thongTinBhxhs     ThongTinBhxh[] @relation("bacLuong")
+  thongTinBhxhsNext ThongTinBhxh[] @relation("bacLuongNext")
+  lichSuBhxhs       LichSuBhxh[]
 
   //@@unique([bac, ngachId]) // tránh trùng bậc trong 1 ngạch
 }
@@ -99,21 +103,43 @@ model ThongTinBhxh {
   nhanVienId Int      @unique
   nhanVien   NhanVien @relation(fields: [nhanVienId], references: [id])
 
+  //Luong hien tai
   ngachLuongId Int
-  ngachLuong   NgachLuong @relation(fields: [ngachLuongId], references: [id])
+  ngachLuong   NgachLuong @relation("ngachLuong", fields: [ngachLuongId], references: [id])
 
   bacLuongId Int
-  bacLuong   BacLuong @relation(fields: [bacLuongId], references: [id])
+  bacLuong   BacLuong @relation("bacLuong", fields: [bacLuongId], references: [id])
 
   phuCapId Int?
-  phuCap   HeSoPhuCap? @relation(fields: [phuCapId], references: [id])
+  phuCap   HeSoPhuCap? @relation("phuCap", fields: [phuCapId], references: [id])
 
   trachNhiemId Int?
-  trachNhiem   HeSoTrachNhiem? @relation(fields: [trachNhiemId], references: [id])
+  trachNhiem   HeSoTrachNhiem? @relation("trachNhiem", fields: [trachNhiemId], references: [id])
+
+  mucLuong Int
 
   ngayApDung DateTime
   thongTin   String?
 
+  //Luong tiep theo
+  ngachLuongNextId Int?
+  ngachLuongNext   NgachLuong? @relation("ngachLuongNext", fields: [ngachLuongNextId], references: [id])
+
+  bacLuongNextId Int?
+  bacLuongNext   BacLuong? @relation("bacLuongNext", fields: [bacLuongNextId], references: [id])
+
+  phuCapNextId Int?
+  phuCapNext   HeSoPhuCap? @relation("phuCapNext", fields: [phuCapNextId], references: [id])
+
+  trachNhiemNextId Int?
+  trachNhiemNext   HeSoTrachNhiem? @relation("trachNhiemNext", fields: [trachNhiemNextId], references: [id])
+
+  mucLuongNext Int?
+
+  ngayNangBacNext DateTime?
+
+  daMaxBac        Boolean   @default(false)
+  //check gui email
   lastEmailSentAt DateTime? // Có thể null nếu chưa gửi email lần nào
 }
 

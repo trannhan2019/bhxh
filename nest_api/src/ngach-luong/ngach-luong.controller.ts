@@ -5,7 +5,7 @@ import { NgachLuongService } from './ngach-luong.service';
 export class NgachLuongController {
   constructor(private readonly ngachLuongService: NgachLuongService) {}
 
-  @Get()
+  @Get('bac-luong')
   ngachLuongs() {
     return this.ngachLuongService.ngachLuongs();
   }

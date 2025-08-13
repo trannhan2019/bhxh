@@ -16,6 +16,12 @@ export class NhanVienService {
     return { data: nhanVienList, total };
   }
 
+  async nhanVien(id: number) {
+    return this.prisma.nhanVien.findFirst({
+      where: { id },
+      include: { phong: true, chucVu: true },
+    });
+  }
   // updateNghiViec(id: number, data: UpdateNghiViecDto) {
   //   return this.prisma.nhanVien.update({
   //     where: { id },

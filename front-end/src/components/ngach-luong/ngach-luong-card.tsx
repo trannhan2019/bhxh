@@ -21,7 +21,7 @@ export function NgachLuongCard({ data }: Props) {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {data.bacLuong.map((item) => (
+            {data.bacLuongs.map((item) => (
               <Table.Tr key={item.id}>
                 <Table.Td>{item.bac}</Table.Td>
                 <Table.Td>{item.heSo.toLocaleString("vi-VN")}</Table.Td>

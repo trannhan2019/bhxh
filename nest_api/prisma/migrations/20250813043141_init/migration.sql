@@ -73,14 +73,26 @@ CREATE TABLE "ThongTinBhxh" (
     "bacLuongId" INTEGER NOT NULL,
     "phuCapId" INTEGER,
     "trachNhiemId" INTEGER,
+    "mucLuong" INTEGER NOT NULL,
     "ngayApDung" DATETIME NOT NULL,
     "thongTin" TEXT,
+    "ngachLuongNextId" INTEGER,
+    "bacLuongNextId" INTEGER,
+    "phuCapNextId" INTEGER,
+    "trachNhiemNextId" INTEGER,
+    "mucLuongNext" INTEGER,
+    "ngayNangBacNext" DATETIME,
+    "daMaxBac" BOOLEAN NOT NULL DEFAULT false,
     "lastEmailSentAt" DATETIME,
     CONSTRAINT "ThongTinBhxh_nhanVienId_fkey" FOREIGN KEY ("nhanVienId") REFERENCES "NhanVien" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "ThongTinBhxh_ngachLuongId_fkey" FOREIGN KEY ("ngachLuongId") REFERENCES "NgachLuong" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "ThongTinBhxh_bacLuongId_fkey" FOREIGN KEY ("bacLuongId") REFERENCES "BacLuong" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "ThongTinBhxh_phuCapId_fkey" FOREIGN KEY ("phuCapId") REFERENCES "HeSoPhuCap" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT "ThongTinBhxh_trachNhiemId_fkey" FOREIGN KEY ("trachNhiemId") REFERENCES "HeSoTrachNhiem" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    CONSTRAINT "ThongTinBhxh_trachNhiemId_fkey" FOREIGN KEY ("trachNhiemId") REFERENCES "HeSoTrachNhiem" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT "ThongTinBhxh_ngachLuongNextId_fkey" FOREIGN KEY ("ngachLuongNextId") REFERENCES "NgachLuong" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT "ThongTinBhxh_bacLuongNextId_fkey" FOREIGN KEY ("bacLuongNextId") REFERENCES "BacLuong" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT "ThongTinBhxh_phuCapNextId_fkey" FOREIGN KEY ("phuCapNextId") REFERENCES "HeSoPhuCap" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT "ThongTinBhxh_trachNhiemNextId_fkey" FOREIGN KEY ("trachNhiemNextId") REFERENCES "HeSoTrachNhiem" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable

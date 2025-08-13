@@ -1,4 +1,4 @@
-import { Controller, Get, ParseIntPipe, Query } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { NhanVienService } from './nhan-vien.service';
 
 @Controller('nhan-vien')
@@ -11,5 +11,10 @@ export class NhanVienController {
     @Query('pageSize', ParseIntPipe) pageSize: number,
   ) {
     return this.nhanVienService.nhanViens({ page, pageSize });
+  }
+
+  @Get(':id')
+  nhanVien(@Param('id', ParseIntPipe) id: number) {
+    return this.nhanVienService.nhanVien(id);
   }
 }

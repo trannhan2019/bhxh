@@ -57,24 +57,28 @@ export class ThongTinBhxhController {
               </body>
             </html>
         `;
-        this.mailService.sendMail({
-          from: 'Lương BHXH <phongtochuchanhchinh.sba@gmail.com>',
-          to: 'trannhan.s3@gmail.com',
-          subject: 'Thông báo nâng lương BHXH gần đến hạn',
-          text: html,
-        });
+        // this.mailService.sendMail({
+        //   from: 'Lương BHXH <phongtochuchanhchinh.sba@gmail.com>',
+        //   to: 'trannhan.s3@gmail.com',
+        //   subject: 'Thông báo nâng lương BHXH gần đến hạn',
+        //   text: html,
+        // });
       }
     }
     return thongTins;
   }
-  @Get('/report/:id')
+  // @Get('report/:id')
+  // test() {
+  //   return 'test';
+  // }
+  @Get('report/:id')
   async exportThongTinBhxhToExcel(
     @Param('id', ParseIntPipe) id: number,
     @Res() response: Response,
   ) {
     const thongTin = await this.thongTinBhxhService.thongTinBhxh(id);
     if (!thongTin) {
-      throw new Error('Not found');
+      throw new Error('Không có thông tin Thông tin');
     }
     const buffer = await this.reportService.exportThongTinBhxhToExcel(thongTin);
 
@@ -86,7 +90,7 @@ export class ThongTinBhxhController {
       'Content-Disposition',
       'attachment; filename="bhxh.xlsx"',
     );
-    response.send(buffer);
+    return response.send(buffer);
   }
 
   @Get('xac-nhan/:id')

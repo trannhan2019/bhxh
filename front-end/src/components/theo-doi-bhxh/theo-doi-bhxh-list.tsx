@@ -68,19 +68,12 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
                 </List.Item>
               </List>
             </Table.Td>
-            <Table.Td>
-              {calculateTotalSalary(
-                item?.phuCap?.heSo,
-                item?.trachNhiem?.heSo,
-                item?.bacLuong,
-                mucLuongToiThieu?.mucLuong || 0
-              ).toLocaleString("vi-VN")}
-            </Table.Td>
+            <Table.Td>{item.mucLuong.toLocaleString("vi-VN")}</Table.Td>
             <Table.Td>{formatNgayVN(item?.ngayApDung)}</Table.Td>
             <Table.Td>
               {isBacLuongMax(
                 item?.bacLuong,
-                item?.ngachLuong.bacLuong || []
+                item?.ngachLuong.bacLuongs || []
               ) ? (
                 <Badge variant="outline" color="green">
                   Đã max bậc

@@ -1,7 +1,7 @@
-import { Badge, Table } from "@mantine/core";
+import { Badge, Group, Pagination, Select, Table } from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getNhanViens } from "apis/nhan-vien";
-// import { usePhanTrang } from "hooks/phan-trang";
+import { usePhanTrang } from "hooks/phan-trang";
 import { Link, useSearchParams } from "react-router";
 
 export function NhanVienList() {
@@ -16,17 +16,17 @@ export function NhanVienList() {
     placeholderData: keepPreviousData,
   });
 
-  // const {
-  //   currentPage,
-  //   pageSize,
-  //   totalPages,
-  //   handlePageChange,
-  //   handlePageSizeChange,
-  // } = usePhanTrang(nhanViens?.data.total || 0);
+  const {
+    currentPage,
+    pageSize,
+    totalPages,
+    handlePageChange,
+    handlePageSizeChange,
+  } = usePhanTrang(nhanViens?.data.total || 0);
 
-  const rows = nhanViens?.data?.map((element) => (
+  const rows = nhanViens?.data?.data.map((element, idx) => (
     <Table.Tr key={element.id}>
-      {/* <Table.Td>{(currentPage - 1) * pageSize + idx + 1}</Table.Td> */}
+      <Table.Td>{(currentPage - 1) * pageSize + idx + 1}</Table.Td>
       <Table.Td className="hover:underline hover:text-blue-500">
         <Link to={`/nhan-vien/${element.id}`}>{element.ten}</Link>
       </Table.Td>
@@ -56,7 +56,7 @@ export function NhanVienList() {
         <Table.Tbody>{rows}</Table.Tbody>
       </Table>
 
-      {/* <Group mt="md" justify="flex-end">
+      <Group mt="md" justify="flex-end">
         <Select
           data={["5", "10", "20", "50"]}
           value={String(pageSize)}
@@ -68,7 +68,7 @@ export function NhanVienList() {
           value={currentPage}
           onChange={handlePageChange}
         />
-      </Group> */}
+      </Group>
     </div>
   );
 }

@@ -10,8 +10,16 @@ export type ThongTinBhxh = {
   bacLuongId: number;
   phuCapId: number | null;
   trachNhiemId: number | null;
+  mucLuong: number;
   ngayApDung: Date;
   thongTin: string | null;
+  ngachLuongNextId: number | null;
+  bacLuongNextId: number | null;
+  phuCapNextId: number | null;
+  trachNhiemNextId: number | null;
+  mucLuongNext: number | null;
+  ngayNangBacNext: Date | null;
+  daMaxBac: boolean;
   lastEmailSentAt: Date | null;
 };
 
