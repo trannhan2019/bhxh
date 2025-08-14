@@ -1,6 +1,6 @@
 import type { BacLuong } from "./bac-luong";
 import type { HeSoPhuCap } from "./he-so-phu-cap";
-import type { NgachLuongWithBac } from "./ngach-luong";
+import type { NgachLuong, NgachLuongWithBac } from "./ngach-luong";
 import type { NhanVien, NhanVienWithPhong } from "./nhan-vien";
 
 export type ThongTinBhxh = {
@@ -31,8 +31,12 @@ export type ThongTinBHXHWithNhanVienNgachLuongBacLuong = ThongTinBhxh & {
 
 export type ThongTinBHXHResponse = ThongTinBhxh & {
   nhanVien: NhanVienWithPhong;
-  ngachLuong: NgachLuongWithBac;
+  ngachLuong: NgachLuong;
   bacLuong: BacLuong;
   phuCap: HeSoPhuCap | null;
   trachNhiem: HeSoPhuCap | null;
+  ngachLuongNext: NgachLuong | null;
+  bacLuongNext: BacLuong | null;
+  phuCapNext: HeSoPhuCap | null;
+  trachNhiemNext: HeSoPhuCap | null;
 };

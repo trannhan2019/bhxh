@@ -38,12 +38,9 @@ export const formatNgayApDungTiepTheo = (
   return dayjs(ngayApDung).add(soNgayNangBac, "day").format("DD/MM/YYYY");
 };
 
-export const formatColorTheoNgayApDung = (
-  ngayApDung: Date,
-  thoiGianNangBac: number
-) => {
+export const formatColorTheoNgayApDung = (ngayApDung: Date | null) => {
   const ngayHientai = dayjs();
-  const ngayApDungTiepTheo = dayjs(ngayApDung).add(thoiGianNangBac, "day");
+  const ngayApDungTiepTheo = dayjs(ngayApDung);
 
   const soNgayConLai = ngayApDungTiepTheo.diff(ngayHientai, "day");
 

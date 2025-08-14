@@ -1,24 +1,9 @@
 import { Anchor, Badge, List, Table } from "@mantine/core";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-
-import { getMucLuongToiThieuMoiNhat } from "apis/muc-luong-toi-thieu";
-import {
-  calculateTotalSalary,
-  formatColorTheoNgayApDung,
-  formatNgayApDungTiepTheo,
-  formatNgayVN,
-  isBacLuongMax,
-} from "lib/util";
+import { formatColorTheoNgayApDung, formatNgayVN } from "lib/util";
 import { Link } from "react-router";
 import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
 
 export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
-  const { data: mucLuongToiThieu } = useQuery({
-    queryKey: ["muc-luong-toi-thieu"],
-    queryFn: () => getMucLuongToiThieuMoiNhat(),
-    placeholderData: keepPreviousData,
-  });
-
   return (
     <Table highlightOnHover withTableBorder>
       <Table.Thead>
@@ -71,24 +56,13 @@ export function TheoDoiBHXHList({ data }: { data: ThongTinBHXHResponse[] }) {
             <Table.Td>{item.mucLuong.toLocaleString("vi-VN")}</Table.Td>
             <Table.Td>{formatNgayVN(item?.ngayApDung)}</Table.Td>
             <Table.Td>
-              {isBacLuongMax(
-                item?.bacLuong,
-                item?.ngachLuong.bacLuongs || []
-              ) ? (
+              {item.daMaxBac ? (
                 <Badge variant="outline" color="green">
                   Đã max bậc
                 </Badge>
               ) : (
-                <Badge
-                  color={formatColorTheoNgayApDung(
-                    item?.ngayApDung,
-                    item?.bacLuong.thoiGianNangBac
-                  )}
-                >
-                  {formatNgayApDungTiepTheo(
-                    item?.ngayApDung,
-                    item?.bacLuong.thoiGianNangBac
-                  )}
+                <Badge color={formatColorTheoNgayApDung(item?.ngayNangBacNext)}>
+                  {formatNgayVN(item.ngayNangBacNext)}
                 </Badge>
               )}
             </Table.Td>

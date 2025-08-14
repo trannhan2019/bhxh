@@ -2,8 +2,8 @@ import type { HeSoPhuCap, HeSoTrachNhiem, BacLuong } from '@prisma/client';
 import dayjs from 'dayjs';
 
 export function tinhMucLuongBhxh(
-  phuCap: HeSoPhuCap | undefined,
-  trachNhiem: HeSoTrachNhiem | undefined,
+  phuCap: HeSoPhuCap | undefined | null,
+  trachNhiem: HeSoTrachNhiem | undefined | null,
   bacLuong: BacLuong | undefined,
 ) {
   const phuCapSalary = phuCap ? phuCap.heSo * 4410000 : 0;
@@ -13,7 +13,7 @@ export function tinhMucLuongBhxh(
 }
 
 export function tinhNgayApDungNext(
-  ngayApDung: string,
+  ngayApDung: Date | null | string,
   bacLuong: BacLuong | undefined,
 ) {
   const soNgayNangBac = bacLuong ? bacLuong.thoiGianNangBac + 1 : 0;

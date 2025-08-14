@@ -1,14 +1,5 @@
 import { Badge, Card, Divider, List, Text, Title } from "@mantine/core";
-import { useQuery } from "@tanstack/react-query";
-import { getMucLuongToiThieuMoiNhat } from "apis/muc-luong-toi-thieu";
-import {
-  calculateTotalSalary,
-  formatNgayApDungTiepTheo,
-  isBacLuongMax,
-  isGanDenHanNangBac,
-  timBacLuongTiepTheo,
-  formatNgayVN,
-} from "lib/util";
+import { isGanDenHanNangBac, formatNgayVN } from "lib/util";
 import { BtnXacNhan } from "./btn-xac-nhan";
 import type { ThongTinBHXHResponse } from "types/thong-tin-bhxh";
 import { IconCalendar } from "@tabler/icons-react";
@@ -18,16 +9,6 @@ export function TheoDoiBhxhChiTiet({
 }: {
   data: ThongTinBHXHResponse | undefined;
 }) {
-  const { data: mucLuong } = useQuery({
-    queryKey: ["muc-luong-toi-thieu"],
-    queryFn: () => getMucLuongToiThieuMoiNhat(),
-  });
-
-  const bacLuongTiepTheo =
-    data?.bacLuong &&
-    timBacLuongTiepTheo(data.bacLuong, data.ngachLuong.bacLuongs);
-  // console.log("id:2", data?.id);
-
   return (
     <Card shadow="md" radius="md">
       <Text>
@@ -61,13 +42,7 @@ export function TheoDoiBhxhChiTiet({
       <Text>
         Mức lương:{" "}
         <span className="font-semibold">
-          {calculateTotalSalary(
-            data?.phuCap?.heSo,
-            data?.trachNhiem?.heSo,
-            data?.bacLuong,
-            mucLuong?.mucLuong || 0
-          ).toLocaleString("vi-VN")}{" "}
-          đồng
+          {data?.mucLuong.toLocaleString("vi-VN")} đồng
         </span>
       </Text>
       <Text>
@@ -82,7 +57,7 @@ export function TheoDoiBhxhChiTiet({
           Thông tin nâng bậc tiếp theo
         </Title>
       </div>
-      {isBacLuongMax(data?.bacLuong, data?.ngachLuong.bacLuongs) ? (
+      {data?.daMaxBac ? (
         <Badge variant="outline" color="green">
           Đã max bậc
         </Badge>
@@ -91,40 +66,31 @@ export function TheoDoiBhxhChiTiet({
           <Text>
             Thời gian nâng bậc tiếp theo:{" "}
             <span className="font-semibold">
-              {formatNgayApDungTiepTheo(
-                data?.ngayApDung,
-                data?.bacLuong?.thoiGianNangBac || 0
-              )}
+              {formatNgayVN(data?.ngayNangBacNext)}
             </span>
           </Text>
           <List size="md">
-            {data?.phuCap && (
+            {data?.phuCapNext && (
               <List.Item>
-                {data?.phuCap.chucDanh}, hệ số{" "}
-                {data?.phuCap.heSo.toLocaleString("vi-VN")}
+                {data?.phuCapNext?.chucDanh}, hệ số{" "}
+                {data?.phuCapNext?.heSo.toLocaleString("vi-VN")}
               </List.Item>
             )}
-            {data?.trachNhiem && (
+            {data?.trachNhiemNext && (
               <List.Item>
-                {data?.trachNhiem.chucDanh}, hệ số{" "}
-                {data?.trachNhiem.heSo.toLocaleString("vi-VN")}
+                {data?.trachNhiemNext.chucDanh}, hệ số{" "}
+                {data?.trachNhiemNext.heSo.toLocaleString("vi-VN")}
               </List.Item>
             )}
             <List.Item>
-              {data?.ngachLuong.chucDanh}, bậc {bacLuongTiepTheo?.bac}, hệ số{" "}
-              {bacLuongTiepTheo?.heSo.toLocaleString("vi-VN")}
+              {data?.ngachLuongNext?.chucDanh}, bậc {data?.bacLuongNext?.bac},
+              hệ số {data?.bacLuongNext?.heSo.toLocaleString("vi-VN")}
             </List.Item>
           </List>
           <Text>
             Mức lương:{" "}
             <span className="font-semibold">
-              {calculateTotalSalary(
-                data?.phuCap?.heSo,
-                data?.trachNhiem?.heSo,
-                bacLuongTiepTheo,
-                mucLuong?.mucLuong || 0
-              ).toLocaleString("vi-VN")}{" "}
-              đồng
+              {data?.mucLuongNext?.toLocaleString("vi-VN")} || 0 đồng
             </span>
           </Text>
           {isGanDenHanNangBac(
