@@ -119,4 +119,3 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
    hơi khó khăn chút khi add
 2. CRUD các bảng cần thiết trước
 3. auth
-4. lên lịch check gửi email -> cải tạo lại logic

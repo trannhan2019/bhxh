@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -30,6 +31,11 @@ export class PhongController {
     @Param('id', ParseIntPipe) id: number,
   ) {
     return await this.phongService.updatePhong(id, data);
+  }
+
+  @Delete(':id')
+  async deletePhong(@Param('id', ParseIntPipe) id: number) {
+    return await this.phongService.deletePhong(id);
   }
 
   @Get(':id')

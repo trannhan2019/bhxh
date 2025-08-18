@@ -9,6 +9,7 @@ export type NhanVien = {
   soThuTu: number;
   isActive: boolean;
   daNghiViec: Date;
+  isVhsc: boolean;
 };
 
 export type NhanVienWithPhong = NhanVien & { phong: Phong };

@@ -19,3 +19,7 @@ export const addPhong = (phong: Omit<Phong, "id">) => {
 export const updatePhong = (id: number, phong: Omit<Phong, "id">) => {
   return axiosClient.patch<Phong>(`${apiUrl}/${id}`, phong);
 };
+
+export const deletePhong = (id: number) => {
+  return axiosClient.delete(`${apiUrl}/${id}`);
+};

@@ -41,6 +41,7 @@ model NhanVien {
   soThuTu          Int               @default(0)
   isActive         Boolean           @default(true)
   daNghiViec       DateTime?
+  isVhsc           Boolean           @default(false)
   thongTinNghiViec ThongTinNghiViec?
 
   thongTinBhxh ThongTinBhxh?

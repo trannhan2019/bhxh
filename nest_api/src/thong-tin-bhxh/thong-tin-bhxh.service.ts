@@ -57,7 +57,7 @@ export class ThongTinBhxhService {
     const thongTinBhxhs = await this.prisma.thongTinBhxh.findMany({
       where: {
         nhanVien: {
-          is: { daNghiViec: null },
+          is: { daNghiViec: null, isVhsc: false },
         },
       },
       include: {

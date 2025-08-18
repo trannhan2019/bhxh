@@ -26,4 +26,8 @@ export class PhongService {
       data,
     });
   }
+
+  async deletePhong(id: number) {
+    return this.prisma.phong.delete({ where: { id } });
+  }
 }

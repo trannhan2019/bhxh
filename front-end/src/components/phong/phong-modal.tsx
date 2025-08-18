@@ -52,6 +52,12 @@ export function PhongModal({ opened, close, type, id }: Props) {
       });
     }
   }, [phongData, type]);
+  // Reset form khi chuyển sang create
+  useEffect(() => {
+    if (type === "create" && opened) {
+      form.reset(); // trở về initialValues
+    }
+  }, [type, opened]);
 
   const { mutate, isPending } = useMutation({
     mutationFn: (values: PhongFormData) => {

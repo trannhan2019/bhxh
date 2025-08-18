@@ -5,6 +5,8 @@ export const nhanVienData = [
     chucVuId: 1,
     soThuTu: 1,
     isActive: true,
+    id: 1,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Hùng Việt',
@@ -12,6 +14,8 @@ export const nhanVienData = [
     chucVuId: 5,
     soThuTu: 2,
     isActive: true,
+    id: 2,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Thế Duy',
@@ -19,6 +23,8 @@ export const nhanVienData = [
     chucVuId: 6,
     soThuTu: 3,
     isActive: true,
+    id: 3,
+    isVhsc: false,
   },
   {
     ten: 'Phan Đình Thạnh',
@@ -26,6 +32,8 @@ export const nhanVienData = [
     chucVuId: 6,
     soThuTu: 4,
     isActive: true,
+    id: 4,
+    isVhsc: false,
   },
   {
     ten: 'Phạm Văn Luận',
@@ -33,6 +41,8 @@ export const nhanVienData = [
     chucVuId: 9,
     soThuTu: 5,
     isActive: true,
+    id: 5,
+    isVhsc: false,
   },
   {
     ten: 'Phạm Sĩ Huân',
@@ -40,6 +50,8 @@ export const nhanVienData = [
     chucVuId: 12,
     soThuTu: 6,
     isActive: true,
+    id: 6,
+    isVhsc: false,
   },
   {
     ten: 'Phan Thị Anh Đào',
@@ -47,6 +59,8 @@ export const nhanVienData = [
     chucVuId: 11,
     soThuTu: 7,
     isActive: true,
+    id: 7,
+    isVhsc: false,
   },
   {
     ten: 'Đinh Quang Nhật',
@@ -54,6 +68,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 8,
     isActive: true,
+    id: 8,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Ngọc Thành',
@@ -61,6 +77,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 9,
     isActive: true,
+    id: 9,
+    isVhsc: false,
   },
   {
     ten: 'Trần Thanh Nhân',
@@ -68,6 +86,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 10,
     isActive: true,
+    id: 10,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Văn Trúc',
@@ -75,6 +95,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 11,
     isActive: true,
+    id: 11,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Ngọc Anh',
@@ -82,6 +104,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 12,
     isActive: true,
+    id: 12,
+    isVhsc: false,
   },
   {
     ten: 'Võ Anh Thùy An',
@@ -89,6 +113,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 13,
     isActive: true,
+    id: 13,
+    isVhsc: false,
   },
   {
     ten: 'Trần Ngọc Thùy Vy',
@@ -96,6 +122,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 14,
     isActive: true,
+    id: 14,
+    isVhsc: false,
   },
   {
     ten: 'Phan Thanh Vinh',
@@ -103,6 +131,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 15,
     isActive: true,
+    id: 15,
+    isVhsc: false,
   },
   {
     ten: 'Phan Nguyên Tuấn',
@@ -110,6 +140,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 16,
     isActive: true,
+    id: 16,
+    isVhsc: false,
   },
   {
     ten: 'Phạm Thái Hùng',
@@ -117,6 +149,8 @@ export const nhanVienData = [
     chucVuId: 7,
     soThuTu: 17,
     isActive: true,
+    id: 17,
+    isVhsc: false,
   },
   {
     ten: 'Trương Ngọc Hùng',
@@ -124,6 +158,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 18,
     isActive: true,
+    id: 18,
+    isVhsc: false,
   },
   {
     ten: 'Võ Thị Minh Thu',
@@ -131,6 +167,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 19,
     isActive: true,
+    id: 19,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Võ Hiền Trang',
@@ -138,6 +176,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 20,
     isActive: true,
+    id: 20,
+    isVhsc: false,
   },
   {
     ten: 'Hồ Thủy Tiên',
@@ -145,6 +185,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 21,
     isActive: true,
+    id: 21,
+    isVhsc: false,
   },
   {
     ten: 'Phan Đình Long',
@@ -152,6 +194,8 @@ export const nhanVienData = [
     chucVuId: 9,
     soThuTu: 22,
     isActive: true,
+    id: 22,
+    isVhsc: false,
   },
   {
     ten: 'Huỳnh Văn Sanh',
@@ -159,6 +203,8 @@ export const nhanVienData = [
     chucVuId: 11,
     soThuTu: 23,
     isActive: true,
+    id: 23,
+    isVhsc: false,
   },
   {
     ten: 'Phan Vũ Quang Nhật',
@@ -166,6 +212,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 24,
     isActive: true,
+    id: 24,
+    isVhsc: false,
   },
   {
     ten: 'Hứa Huy Hiệu',
@@ -173,6 +221,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 25,
     isActive: true,
+    id: 25,
+    isVhsc: false,
   },
   {
     ten: 'Hồ Ngọc Ba',
@@ -180,6 +230,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 26,
     isActive: true,
+    id: 26,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Đăng Hùng',
@@ -187,6 +239,8 @@ export const nhanVienData = [
     chucVuId: 9,
     soThuTu: 27,
     isActive: true,
+    id: 27,
+    isVhsc: false,
   },
   {
     ten: 'Đinh Thế Tú',
@@ -194,6 +248,8 @@ export const nhanVienData = [
     chucVuId: 11,
     soThuTu: 28,
     isActive: true,
+    id: 28,
+    isVhsc: false,
   },
   {
     ten: 'Trần Thanh Phú',
@@ -201,6 +257,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 29,
     isActive: true,
+    id: 29,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Văn Tiến',
@@ -208,6 +266,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 30,
     isActive: true,
+    id: 30,
+    isVhsc: false,
   },
   {
     ten: 'Trần Văn Kỳ',
@@ -215,6 +275,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 31,
     isActive: true,
+    id: 31,
+    isVhsc: false,
   },
   {
     ten: 'Trần Hoài Bảo',
@@ -222,6 +284,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 32,
     isActive: true,
+    id: 32,
+    isVhsc: false,
   },
   {
     ten: 'Huỳnh Bá Anh Nhật',
@@ -229,6 +293,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 33,
     isActive: true,
+    id: 33,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Hữu Bảo Khánh',
@@ -236,6 +302,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 34,
     isActive: true,
+    id: 34,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Cường',
@@ -243,6 +311,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 35,
     isActive: true,
+    id: 35,
+    isVhsc: false,
   },
   {
     ten: 'Trần Ngọc Hoành',
@@ -250,6 +320,8 @@ export const nhanVienData = [
     chucVuId: 8,
     soThuTu: 36,
     isActive: true,
+    id: 36,
+    isVhsc: false,
   },
   {
     ten: 'Trần Thanh Hằng',
@@ -257,6 +329,8 @@ export const nhanVienData = [
     chucVuId: 10,
     soThuTu: 37,
     isActive: true,
+    id: 37,
+    isVhsc: false,
   },
   {
     ten: 'Lương Quang Phụng',
@@ -264,6 +338,8 @@ export const nhanVienData = [
     chucVuId: 10,
     soThuTu: 38,
     isActive: true,
+    id: 38,
+    isVhsc: false,
   },
   {
     ten: 'Trần Văn Tân',
@@ -271,6 +347,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 39,
     isActive: true,
+    id: 39,
+    isVhsc: false,
   },
   {
     ten: 'Hứa Minh Hoàng',
@@ -278,6 +356,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 40,
     isActive: true,
+    id: 40,
+    isVhsc: false,
   },
   {
     ten: 'Hồ Sĩ Bản',
@@ -285,6 +365,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 41,
     isActive: true,
+    id: 41,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Văn Thế',
@@ -292,6 +374,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 42,
     isActive: true,
+    id: 42,
+    isVhsc: false,
   },
   {
     ten: 'Huỳnh Bá Vinh',
@@ -299,6 +383,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 43,
     isActive: true,
+    id: 43,
+    isVhsc: false,
   },
   {
     ten: 'Vũ Đức Tịnh',
@@ -306,6 +392,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 44,
     isActive: true,
+    id: 44,
+    isVhsc: false,
   },
   {
     ten: 'Huỳnh Tấn Minh Vũ',
@@ -313,6 +401,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 45,
     isActive: true,
+    id: 45,
+    isVhsc: false,
   },
   {
     ten: 'Phan Minh Thạch',
@@ -320,6 +410,8 @@ export const nhanVienData = [
     chucVuId: 8,
     soThuTu: 46,
     isActive: true,
+    id: 46,
+    isVhsc: false,
   },
   {
     ten: 'Võ Cao Trí',
@@ -327,6 +419,8 @@ export const nhanVienData = [
     chucVuId: 10,
     soThuTu: 47,
     isActive: true,
+    id: 47,
+    isVhsc: false,
   },
   {
     ten: 'Phan Gia Khải',
@@ -334,6 +428,8 @@ export const nhanVienData = [
     chucVuId: 18,
     soThuTu: 48,
     isActive: true,
+    id: 48,
+    isVhsc: false,
   },
   {
     ten: 'Mai Văn Hiền',
@@ -341,6 +437,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 49,
     isActive: true,
+    id: 49,
+    isVhsc: true,
   },
   {
     ten: 'Võ Văn Bốn',
@@ -348,6 +446,8 @@ export const nhanVienData = [
     chucVuId: 18,
     soThuTu: 50,
     isActive: true,
+    id: 50,
+    isVhsc: true,
   },
   {
     ten: 'Phan Quang Hòa',
@@ -355,6 +455,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 51,
     isActive: true,
+    id: 51,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Văn Thắng',
@@ -362,6 +464,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 52,
     isActive: true,
+    id: 52,
+    isVhsc: true,
   },
   {
     ten: 'Mai Đức Bình',
@@ -369,6 +473,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 53,
     isActive: true,
+    id: 53,
+    isVhsc: false,
   },
   {
     ten: 'Hà Công Phú',
@@ -376,6 +482,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 54,
     isActive: true,
+    id: 54,
+    isVhsc: true,
   },
   {
     ten: 'Huỳnh Xuân Toàn',
@@ -383,6 +491,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 55,
     isActive: true,
+    id: 55,
+    isVhsc: true,
   },
   {
     ten: 'Cao Thanh Tài',
@@ -390,6 +500,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 56,
     isActive: true,
+    id: 56,
+    isVhsc: true,
   },
   {
     ten: 'Thái Thanh Hùng',
@@ -397,6 +509,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 57,
     isActive: true,
+    id: 57,
+    isVhsc: true,
   },
   {
     ten: 'Lưu Văn Duy',
@@ -404,6 +518,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 58,
     isActive: true,
+    id: 58,
+    isVhsc: true,
   },
   {
     ten: 'Lê Văn Thuận',
@@ -411,6 +527,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 59,
     isActive: true,
+    id: 59,
+    isVhsc: true,
   },
   {
     ten: 'Võ Tuyến Sinh',
@@ -418,6 +536,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 60,
     isActive: true,
+    id: 60,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Tấn Hiền',
@@ -425,6 +545,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 61,
     isActive: true,
+    id: 61,
+    isVhsc: true,
   },
   {
     ten: 'Ngô Sĩ Văn',
@@ -432,6 +554,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 62,
     isActive: true,
+    id: 62,
+    isVhsc: true,
   },
   {
     ten: 'Trần Hồng Diệp',
@@ -439,6 +563,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 63,
     isActive: true,
+    id: 63,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Sinh',
@@ -446,6 +572,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 64,
     isActive: true,
+    id: 64,
+    isVhsc: true,
   },
   {
     ten: 'Lê Đức Dưỡng',
@@ -453,6 +581,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 65,
     isActive: true,
+    id: 65,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Văn Khôi',
@@ -460,6 +590,8 @@ export const nhanVienData = [
     chucVuId: 18,
     soThuTu: 66,
     isActive: true,
+    id: 66,
+    isVhsc: true,
   },
   {
     ten: 'Trần Kim Phúc',
@@ -467,6 +599,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 67,
     isActive: true,
+    id: 67,
+    isVhsc: true,
   },
   {
     ten: 'Lưu Văn Tuấn',
@@ -474,6 +608,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 68,
     isActive: true,
+    id: 68,
+    isVhsc: true,
   },
   {
     ten: 'Thái Văn Mai',
@@ -481,6 +617,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 69,
     isActive: true,
+    id: 69,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Tuấn Đạt',
@@ -488,6 +626,8 @@ export const nhanVienData = [
     chucVuId: 8,
     soThuTu: 70,
     isActive: true,
+    id: 70,
+    isVhsc: false,
   },
   {
     ten: 'Trần Văn Thiện',
@@ -495,6 +635,8 @@ export const nhanVienData = [
     chucVuId: 18,
     soThuTu: 71,
     isActive: true,
+    id: 71,
+    isVhsc: false,
   },
   {
     ten: 'Nguyễn Văn Lai',
@@ -502,6 +644,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 72,
     isActive: true,
+    id: 72,
+    isVhsc: false,
   },
   {
     ten: 'Trần Văn Cường',
@@ -509,6 +653,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 73,
     isActive: true,
+    id: 73,
+    isVhsc: false,
   },
   {
     ten: 'Hoàng Tiến Dũng',
@@ -516,6 +662,8 @@ export const nhanVienData = [
     chucVuId: 18,
     soThuTu: 74,
     isActive: true,
+    id: 74,
+    isVhsc: true,
   },
   {
     ten: 'Phan Thế Hoàng',
@@ -523,6 +671,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 75,
     isActive: true,
+    id: 75,
+    isVhsc: true,
   },
   {
     ten: 'Lò Minh Quách',
@@ -530,6 +680,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 76,
     isActive: true,
+    id: 76,
+    isVhsc: true,
   },
   {
     ten: 'Châu Đình Duy',
@@ -537,6 +689,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 77,
     isActive: true,
+    id: 77,
+    isVhsc: true,
   },
   {
     ten: 'Lê Đình Mạo',
@@ -544,6 +698,8 @@ export const nhanVienData = [
     chucVuId: 17,
     soThuTu: 78,
     isActive: true,
+    id: 78,
+    isVhsc: true,
   },
   {
     ten: 'Ksor Y Tỷ',
@@ -551,6 +707,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 79,
     isActive: true,
+    id: 79,
+    isVhsc: true,
   },
   {
     ten: 'Lê Văn Tri',
@@ -558,6 +716,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 80,
     isActive: true,
+    id: 80,
+    isVhsc: true,
   },
   {
     ten: 'Trần Thanh Tịnh',
@@ -565,6 +725,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 81,
     isActive: true,
+    id: 81,
+    isVhsc: true,
   },
   {
     ten: 'Trần Quang Văn',
@@ -572,6 +734,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 82,
     isActive: true,
+    id: 82,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Đình Đức',
@@ -579,6 +743,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 83,
     isActive: true,
+    id: 83,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Ngọc Tây',
@@ -586,6 +752,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 84,
     isActive: true,
+    id: 84,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Quốc Dương',
@@ -593,6 +761,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 85,
     isActive: true,
+    id: 85,
+    isVhsc: true,
   },
   {
     ten: 'Lê Văn Tuấn',
@@ -600,6 +770,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 86,
     isActive: true,
+    id: 86,
+    isVhsc: true,
   },
   {
     ten: 'Lê Văn Vui',
@@ -607,6 +779,8 @@ export const nhanVienData = [
     chucVuId: 18,
     soThuTu: 87,
     isActive: true,
+    id: 87,
+    isVhsc: true,
   },
   {
     ten: 'Vũ Văn Đề',
@@ -614,6 +788,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 88,
     isActive: true,
+    id: 88,
+    isVhsc: true,
   },
   {
     ten: 'Phạm Lương Hiển Chí',
@@ -621,6 +797,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 89,
     isActive: true,
+    id: 89,
+    isVhsc: true,
   },
   {
     ten: 'Cao Thế Hà',
@@ -628,6 +806,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 90,
     isActive: true,
+    id: 90,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Bá Cảnh',
@@ -635,6 +815,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 91,
     isActive: true,
+    id: 91,
+    isVhsc: true,
   },
   {
     ten: 'Trần Khánh Thuật',
@@ -642,6 +824,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 92,
     isActive: true,
+    id: 92,
+    isVhsc: true,
   },
   {
     ten: 'Bùi Xuân Nam',
@@ -649,6 +833,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 93,
     isActive: true,
+    id: 93,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Thanh Trà',
@@ -656,6 +842,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 94,
     isActive: true,
+    id: 94,
+    isVhsc: true,
   },
   {
     ten: 'Trương Phạm Tuân',
@@ -663,6 +851,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 95,
     isActive: true,
+    id: 95,
+    isVhsc: true,
   },
   {
     ten: 'Nguyễn Tấn Thoại',
@@ -670,6 +860,8 @@ export const nhanVienData = [
     chucVuId: 13,
     soThuTu: 96,
     isActive: true,
+    id: 96,
+    isVhsc: false,
   },
   {
     ten: 'Đào Công Hiên',
@@ -677,6 +869,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 97,
     isActive: true,
+    id: 97,
+    isVhsc: true,
   },
   {
     ten: 'Đoàn Anh Minh',
@@ -684,6 +878,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 98,
     isActive: true,
+    id: 98,
+    isVhsc: true,
   },
   {
     ten: 'Dương Vương Vũ',
@@ -691,6 +887,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 99,
     isActive: true,
+    id: 99,
+    isVhsc: true,
   },
   {
     ten: 'Quảng Đình Rạng',
@@ -698,6 +896,8 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 100,
     isActive: true,
+    id: 100,
+    isVhsc: false,
   },
   {
     ten: 'Hà Thủy Sơn',
@@ -705,5 +905,7 @@ export const nhanVienData = [
     chucVuId: 14,
     soThuTu: 101,
     isActive: true,
+    id: 101,
+    isVhsc: false,
   },
 ];
