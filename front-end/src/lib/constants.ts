@@ -4,3 +4,4 @@ export const DAY_7 = 7;
 
 export const QUERY_PHONGS = "phongs";
 export const QUERY_CHUC_VUS = "chuc-vus";
+export const QUERY_NHAN_VIENS = "nhan-viens";

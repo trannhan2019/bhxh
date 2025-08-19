@@ -50,8 +50,8 @@ export function PhongList() {
       title: "Xác nhận xóa phòng",
       children: (
         <Text size="sm">
-          Bạn có muốn xóa phòng{" "}
-          <b>{phongs?.data.find((p) => p.id === id)?.ten}</b> không?
+          Bạn có muốn xóa phòng <b>{phongs?.find((p) => p.id === id)?.ten}</b>{" "}
+          không?
         </Text>
       ),
       labels: { confirm: "Xác nhận", cancel: "Hủy" },
@@ -60,13 +60,13 @@ export function PhongList() {
   };
 
   // mở modal create
-  const handleAdd = () => {
+  const openCreateModal = () => {
     setModalType("create");
     setSelectedId(null);
     open();
   };
   // mở modal edit
-  const handleEdit = (id: number) => {
+  const openEditModal = (id: number) => {
     setModalType("edit");
     setSelectedId(id);
     open();
@@ -75,7 +75,7 @@ export function PhongList() {
   return (
     <div className="mt-4">
       <div className="flex justify-end mb-4">
-        <Button onClick={handleAdd}>Thêm mới</Button>
+        <Button onClick={openCreateModal}>Thêm mới</Button>
       </div>
 
       <PhongModal
@@ -95,7 +95,7 @@ export function PhongList() {
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {phongs?.data?.map((item, index) => (
+          {phongs?.map((item, index) => (
             <Table.Tr key={item.id}>
               <Table.Td>{index + 1}</Table.Td>
               <Table.Td>{item.ten}</Table.Td>
@@ -105,7 +105,7 @@ export function PhongList() {
                   <ActionIcon
                     size={"sm"}
                     variant="subtle"
-                    onClick={() => handleEdit(item.id)}
+                    onClick={() => openEditModal(item.id)}
                   >
                     <IconEdit />
                   </ActionIcon>

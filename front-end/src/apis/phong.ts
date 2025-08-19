@@ -3,8 +3,9 @@ import type { Phong } from "types/phong";
 
 const apiUrl = "/phong";
 
-export const getPhongs = () => {
-  return axiosClient.get<Phong[]>(apiUrl);
+export const getPhongs = async () => {
+  const res = await axiosClient.get<Phong[]>(apiUrl);
+  return res.data;
 };
 
 export const getPhongById = async (id: number) => {

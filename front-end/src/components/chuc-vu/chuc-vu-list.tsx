@@ -18,7 +18,7 @@ export function ChucVuList() {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        {chucVus?.data?.map((item, index) => (
+        {chucVus?.map((item, index) => (
           <Table.Tr key={item.id}>
             <Table.Td>{index + 1}</Table.Td>
             <Table.Td>{item.ten}</Table.Td>
