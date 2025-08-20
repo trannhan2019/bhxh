@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateMucLuongToiThieuDto } from './muc-luong-toi-thieu.dto';
 
 @Injectable()
 export class MucLuongToiThieuService {
@@ -14,5 +15,20 @@ export class MucLuongToiThieuService {
     return await this.prisma.mucLuongToiThieuVung.findFirstOrThrow({
       orderBy: { thoiGianApdung: 'desc' },
     });
+  }
+
+  async createMucLuongToiThieu(data: CreateMucLuongToiThieuDto) {
+    return await this.prisma.mucLuongToiThieuVung.create({ data });
+  }
+
+  async updateMucLuongToiThieu(id: number, data: CreateMucLuongToiThieuDto) {
+    return await this.prisma.mucLuongToiThieuVung.update({
+      where: { id },
+      data,
+    });
+  }
+
+  async deleteMucLuongToiThieu(id: number) {
+    return await this.prisma.mucLuongToiThieuVung.delete({ where: { id } });
   }
 }
