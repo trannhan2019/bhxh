@@ -16,7 +16,12 @@ import {
   showNotificationError,
   showNotificationSuccess,
 } from "components/common/notifacation";
-import { QUERY_CHUC_VUS, QUERY_NHAN_VIENS, QUERY_PHONGS } from "lib/constants";
+import {
+  QUERY_CHUC_VUS,
+  QUERY_NHAN_VIEN,
+  QUERY_NHAN_VIENS,
+  QUERY_PHONGS,
+} from "lib/constants";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useEffect } from "react";
 import { z } from "zod";
@@ -43,7 +48,7 @@ export function NhanVienModal({ opened, close, type, id }: Props) {
   const queryClient = useQueryClient();
   // Query khi edit
   const { data: nhanVienData, isFetching } = useQuery({
-    queryKey: [QUERY_NHAN_VIENS, id],
+    queryKey: [QUERY_NHAN_VIEN, id],
     queryFn: () => getNhanVien(id!),
     enabled: type === "edit" && !!id && opened, // chỉ fetch khi edit + id tồn tại + modal mở
   });

@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsDate,
   IsInt,
@@ -12,6 +13,7 @@ export class CreateMucLuongToiThieuDto {
   mucLuong: number;
 
   @IsDate()
+  @Type(() => Date)
   @IsNotEmpty()
   thoiGianApdung: Date;
 

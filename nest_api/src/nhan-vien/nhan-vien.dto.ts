@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsBoolean,
   IsDate,
@@ -36,6 +37,7 @@ export class CreateNhanVienDto {
 
   @IsOptional()
   @IsDate()
+  @Type(() => Date)
   daNghiViec?: Date;
 
   @IsBoolean()

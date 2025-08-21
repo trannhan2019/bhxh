@@ -44,4 +44,9 @@ export class MucLuongToiThieuController {
   async deleteMucLuongToiThieu(@Param('id', ParseIntPipe) id: number) {
     return await this.mucLuongToiThieuService.deleteMucLuongToiThieu(id);
   }
+
+  @Get(':id')
+  async mucLuongToiThieu(@Param('id', ParseIntPipe) id: number) {
+    return await this.mucLuongToiThieuService.mucLuongToiThieu(id);
+  }
 }

@@ -7,8 +7,11 @@ import { z } from "zod";
 import { IconCalendar } from "@tabler/icons-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { xacNhanNghiViec } from "apis/thong-tin-nghi-viec";
-import { notifications } from "@mantine/notifications";
 import { useNavigate } from "react-router";
+import {
+  showNotificationError,
+  showNotificationSuccess,
+} from "components/common/notifacation";
 
 interface Props {
   id: number;
@@ -33,7 +36,6 @@ export function ModalXacNhanNghiViec({ id, opened, close }: Props) {
       thoiGianKetThuc: null,
       thongTinKhac: "",
     },
-    mode: "controlled",
     validate: zodResolver(schema),
   });
 
@@ -42,22 +44,14 @@ export function ModalXacNhanNghiViec({ id, opened, close }: Props) {
 
     mutate(values, {
       onSuccess: () => {
-        notifications.show({
-          title: "Thông báo!",
-          message: "Thành công",
-          color: "green",
-        });
+        showNotificationSuccess();
         form.reset();
         queryClient.invalidateQueries({ queryKey: ["theo-doi-nghi-viecs"] });
         close();
         router("/theo-doi-nghi-viec");
       },
       onError: () => {
-        notifications.show({
-          title: "Thông báo!",
-          message: "Thành công",
-          color: "red",
-        });
+        showNotificationError();
       },
     });
   });

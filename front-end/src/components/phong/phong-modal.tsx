@@ -3,7 +3,7 @@ import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { addPhong, updatePhong, getPhongById } from "apis/phong";
-import { QUERY_PHONGS } from "lib/constants";
+import { QUERY_PHONG, QUERY_PHONGS } from "lib/constants";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useEffect } from "react";
 import { z } from "zod";
@@ -37,7 +37,7 @@ export function PhongModal({ opened, close, type, id }: Props) {
 
   // Query khi edit
   const { data: phongData, isFetching } = useQuery({
-    queryKey: [QUERY_PHONGS, id],
+    queryKey: [QUERY_PHONG, id],
     queryFn: () => getPhongById(id!),
     enabled: type === "edit" && !!id && opened, // chỉ fetch khi edit + id tồn tại + modal mở
   });

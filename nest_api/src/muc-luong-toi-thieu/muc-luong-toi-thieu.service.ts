@@ -11,6 +11,12 @@ export class MucLuongToiThieuService {
       orderBy: { thoiGianApdung: 'desc' },
     });
   }
+
+  async mucLuongToiThieu(id: number) {
+    return await this.prisma.mucLuongToiThieuVung.findUnique({
+      where: { id },
+    });
+  }
   async mucLuongToiThieuMoiNhat() {
     return await this.prisma.mucLuongToiThieuVung.findFirstOrThrow({
       orderBy: { thoiGianApdung: 'desc' },
